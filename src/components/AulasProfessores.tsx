@@ -3,6 +3,9 @@ import { COACHING_PLANS } from "../data";
 import { CoachingPlan } from "../types";
 import { motion } from "motion/react";
 import { Check, Calendar, MessageCircle, HelpCircle, Star, Sparkles, Smile, ArrowRight, BookOpen } from "lucide-react";
+import rogerioImg from "../../assets/rogerio.png";
+import lucianoImg from "../../assets/luciano.png";
+
 
 export default function AulasProfessores() {
   const [selectedPlanLevel, setSelectedPlanLevel] = useState<string>("Iniciação");
@@ -182,7 +185,7 @@ export default function AulasProfessores() {
               {/* Portrait Image */}
               <div className="w-full sm:w-44 h-56 rounded-2xl overflow-hidden shrink-0 border border-white/10 relative">
                 <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop"
+                  src={rogerioImg}
                   alt="Rogério Kawakami"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
@@ -256,7 +259,7 @@ export default function AulasProfessores() {
               {/* Portrait Image */}
               <div className="w-full sm:w-44 h-56 rounded-2xl overflow-hidden shrink-0 border border-white/10 relative">
                 <img
-                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop"
+                  src={lucianoImg}
                   alt="Luciano Santos"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
