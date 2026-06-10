@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { Calendar, Trophy, Users, Shield, ArrowRight, MessageCircle, Play } from "lucide-react";
+import { Calendar, Trophy, Users, Shield, ArrowRight, Play } from "lucide-react";
+import tenisHeroVideo from "../../assets/tenis_hero.mp4";
 
 export default function Hero() {
   const floatingCards = [
@@ -144,28 +145,29 @@ export default function Hero() {
           {/* Interactive Visual Right Side representing physical action */}
           <div className="lg:col-span-5 relative w-full h-[320px] sm:h-[400px] lg:h-[480px]">
             
-            {/* Ambient Background Panel Card with premium tennis ball illustration / styled mesh */}
+            {/* Ambient Background Panel Card with premium video */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="absolute inset-0 bg-gradient-to-br from-panel-dark to-dark-bg/80 border border-white/15 rounded-3xl overflow-hidden glow-neon"
+              className="absolute inset-0 bg-panel-dark border border-white/15 rounded-3xl overflow-hidden shadow-2xl glow-neon"
             >
-              <div 
-                className="absolute inset-0 opacity-15 mix-blend-overlay pointer-events-none" 
-                style={{ backgroundImage: `radial-gradient(ellipse at 50% 50%, #ffffff 1px, transparent 1px)`, backgroundSize: '16px 16px' }}
+              {/* Autoplay, looping, muted tennis video */}
+              <video
+                src={tenisHeroVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
               />
-
-              {/* Court Net Graphic styled with purely tailwind elements */}
-              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[2px] bg-white/20 border-t border-dashed border-white/30" />
               
-              {/* Glowing tennis and sand colored orbits */}
-              <div className="absolute top-[20%] left-[30%] w-48 h-48 rounded-full border border-court-neon/10 animate-[spin_12s_linear_infinite]" />
-              <div className="absolute bottom-[10%] right-[15%] w-60 h-60 rounded-full border border-clay-orange/10 animate-[spin_20s_linear_infinite_reverse]" />
+              {/* Premium dark gradient overlay so text remains readable */}
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/85 via-black/20 to-black/30" />
 
-              {/* Decorative premium sport visual elements */}
+              {/* Decorative premium sport visual elements overlay */}
               <div className="absolute inset-0 flex flex-col justify-between p-6">
-                <div className="flex justify-between items-center bg-black/40 backdrop-blur-md rounded-2xl p-4 border border-white/10">
+                <div className="flex justify-between items-center bg-black/55 backdrop-blur-md rounded-2xl p-4 border border-white/10 shadow-lg">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-court-neon" />
                     <div>
@@ -173,40 +175,26 @@ export default function Hero() {
                       <p className="text-xs font-bold text-white">Excelente estadia (Secas)</p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-mono py-1 px-2.5 rounded bg-court-neon/15 text-court-neon uppercase">Aberto</span>
+                  <span className="text-[10px] font-mono py-1 px-2.5 rounded bg-court-neon/15 text-court-neon uppercase font-bold">Aberto</span>
                 </div>
 
-                {/* Animated interactive ball widget */}
-                <div className="relative self-center my-auto flex items-center justify-center">
-                  <motion.div
-                    animate={{ 
-                      y: [-12, 12, -12], 
-                      scale: [0.93, 1.05, 0.93],
-                      rotate: [0, 90, 180, 270, 360]
-                    }}
-                    transition={{ 
-                      y: { repeat: Infinity, duration: 3.5, ease: "easeInOut" },
-                      scale: { repeat: Infinity, duration: 3.5, ease: "easeInOut" },
-                      rotate: { repeat: Infinity, duration: 15, ease: "linear" }
-                    }}
-                    className="w-24 h-24 rounded-full bg-gradient-to-tr from-court-neon to-yellow-300 flex items-center justify-center shadow-2xl relative cursor-pointer group"
-                    id="hero-ball-node"
-                    onClick={() => handleScrollToSec("agenda")}
-                  >
-                    {/* Shadow underneath */}
-                    <div className="absolute bottom-[-10px] w-12 h-2.5 bg-black/30 rounded-full blur-md" />
-                    <Play className="w-8 h-8 text-dark-bg fill-dark-bg translate-x-0.5 group-hover:scale-110 transition-transform" />
-                  </motion.div>
+                {/* Subdued play-overlay button / click area to scroll to reservations */}
+                <div 
+                  onClick={() => handleScrollToSec("agenda")}
+                  className="w-14 h-14 rounded-full bg-court-neon/90 hover:bg-white text-dark-bg flex items-center justify-center shadow-2xl cursor-pointer self-center my-auto transition-all duration-300 hover:scale-110 active:scale-95 group border border-court-neon z-10"
+                  id="hero-play-video-node"
+                >
+                  <Play className="w-6 h-6 text-dark-bg fill-dark-bg translate-x-0.5" />
                 </div>
 
                 <div className="flex justify-between items-end gap-3">
-                  <div className="bg-black/50 p-3 rounded-xl border border-white/5">
+                  <div className="bg-black/55 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-lg">
                     <p className="text-[10px] font-mono text-gray-400 uppercase">Partida do Dia</p>
                     <p className="text-xs font-bold text-white">Desafio de Saibro às 19h</p>
                   </div>
                   
                   {/* Digital community stats badge */}
-                  <div className="bg-court-neon text-dark-bg py-2 px-3.5 rounded-xl font-display font-extrabold text-xs flex items-center gap-1">
+                  <div className="bg-court-neon text-dark-bg py-2 px-3.5 rounded-xl font-display font-extrabold text-xs flex items-center gap-1 shadow-lg">
                     <Users className="w-3.5 h-3.5" />
                     +40 Reservas Hoje
                   </div>
