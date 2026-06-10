@@ -9,7 +9,6 @@ import RankingTorneios from "./components/RankingTorneios";
 import AulasProfessores from "./components/AulasProfessores";
 import InstagramFeed from "./components/InstagramFeed";
 import Galeria from "./components/Galeria";
-import CTAFinal from "./components/CTAFinal";
 import Footer from "./components/Footer";
 import QuickContactButton from "./components/QuickContactButton";
 
@@ -34,7 +33,6 @@ export default function App() {
         <RankingTorneios />
         <InstagramFeed />
         <Galeria />
-        <CTAFinal />
       </main>
 
       {/* Global Interactive Floating widgets */}
