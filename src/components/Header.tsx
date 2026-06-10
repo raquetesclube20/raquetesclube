@@ -5,14 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [activeSection, setActiveSection] = useState("");
 
   const menuItems = [
     { label: "Modalidades", href: "#modalidades" },
@@ -23,6 +16,49 @@ export default function Header() {
     { label: "Unidades", href: "#unidades" },
     { label: "Galeria", href: "#galeria" },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+      if (window.scrollY < 100) {
+        setActiveSection("");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = menuItems.map(item => item.href.slice(1));
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: "-25% 0px -55% 0px", // triggers when section is in the main viewing zone
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -48,7 +84,10 @@ export default function Header() {
         <div className="flex items-center justify-between">
           
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
+          <a href="#" className="flex items-center gap-2 group" onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}>
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-court-neon to-court-emerald flex items-center justify-center glow-neon transition-transform duration-300 group-hover:rotate-12">
               <span className="font-display font-extrabold text-dark-bg text-lg">R</span>
             </div>
@@ -64,16 +103,34 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            {menuItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => scrollToSection(e, item.href.slice(1))}
-                className="text-sm font-medium text-gray-300 hover:text-court-neon transition-colors duration-200 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-court-neon after:transition-all hover:after:w-full"
-              >
-                {item.label}
-              </a>
-            ))}
+            {menuItems.map((item) => {
+              const isActive = activeSection === item.href.slice(1);
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={(e) => scrollToSection(e, item.href.slice(1))}
+                  className={`text-sm font-medium transition-all duration-300 relative py-1 ${
+                    isActive 
+                      ? "text-court-neon font-bold scale-105 drop-shadow-[0_0_8px_rgba(34,197,94,0.35)]" 
+                      : "text-gray-300 hover:text-court-neon"
+                  }`}
+                >
+                  {item.label}
+                  {/* Sliding glowing dot indicator under active item */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavBubble"
+                      className="absolute bottom-0 left-0 w-full h-0.5 bg-court-neon shadow-[0_0_8px_#22c55e]"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                  {!isActive && (
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-court-neon/50 transition-all duration-200 hover:w-full" />
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Desktop Call to Actions */}
@@ -82,11 +139,7 @@ export default function Header() {
               href="#agenda"
               className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-court-neon bg-court-neon/5 hover:bg-court-neon/15 border border-court-neon/30 py-2 px-4 rounded-xl transition-all duration-300 glow-neon"
               id="cta-schedule-top"
-              onClick={(e) => {
-                e.preventDefault();
-                const el = document.getElementById("agenda");
-                if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
-              }}
+              onClick={(e) => scrollToSection(e, "agenda")}
             >
               <Calendar className="w-4 h-4" />
               Ver Agenda
@@ -130,30 +183,33 @@ export default function Header() {
           >
             <div className="px-4 py-6 space-y-4 max-h-[80vh] overflow-y-auto">
               <nav className="flex flex-col space-y-3">
-                {menuItems.map((item, idx) => (
-                  <motion.a
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: idx * 0.05 }}
-                    key={item.label}
-                    href={item.href}
-                    onClick={(e) => scrollToSection(e, item.href.slice(1))}
-                    className="text-base font-medium text-gray-300 hover:text-court-neon hover:pl-2 transition-all py-2 border-b border-white/5"
-                  >
-                    {item.label}
-                  </motion.a>
-                ))}
+                {menuItems.map((item, idx) => {
+                  const isActive = activeSection === item.href.slice(1);
+                  return (
+                    <motion.a
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: idx * 0.05 }}
+                      key={item.label}
+                      href={item.href}
+                      onClick={(e) => scrollToSection(e, item.href.slice(1))}
+                      className={`text-base font-medium transition-all py-2 border-b border-white/5 flex items-center justify-between ${
+                        isActive 
+                          ? "text-court-neon pl-2 font-bold bg-white/[0.02]" 
+                          : "text-gray-300 hover:text-court-neon hover:pl-2"
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      {isActive && <div className="w-1.5 h-1.5 rounded-full bg-court-neon shadow-[0_0_6px_#22c55e]" />}
+                    </motion.a>
+                  );
+                })}
               </nav>
 
               <div className="pt-4 flex flex-col gap-3">
                 <a
                   href="#agenda"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsOpen(false);
-                    const el = document.getElementById("agenda");
-                    if (el) window.scrollTo({ top: el.offsetTop - 85, behavior: "smooth" });
-                  }}
+                  onClick={(e) => scrollToSection(e, "agenda")}
                   className="flex items-center justify-center gap-2 w-full text-center py-3 px-4 rounded-xl text-court-neon bg-court-neon/10 border border-court-neon/20 font-semibold text-sm uppercase tracking-wider"
                 >
                   <Calendar className="w-4 h-4" />

@@ -28,10 +28,10 @@ export default function App() {
       <main className="flex-grow">
         <Hero />
         <Modalidades />
+        <AulasProfessores />
         <Experiencia />
         <AgendaReservas />
         <RankingTorneios />
-        <AulasProfessores />
         <Unidades activeUnit={activeUnit} setActiveUnit={setActiveUnit} />
         <Galeria />
         <CTAFinal />
