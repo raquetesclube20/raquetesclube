@@ -9,10 +9,10 @@ export default function Header() {
 
   const menuItems = [
     { label: "Modalidades", href: "#modalidades" },
+    { label: "Aulas", href: "#aulas" },
     { label: "O Clube", href: "#experiencia" },
     { label: "Agenda", href: "#agenda" },
     { label: "Rankings", href: "#rankings" },
-    { label: "Aulas", href: "#aulas" },
     { label: "Unidades", href: "#unidades" },
     { label: "Galeria", href: "#galeria" },
   ];
@@ -102,7 +102,7 @@ export default function Header() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-1.5 bg-white/[0.02] border border-white/5 p-1 rounded-full backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_4px_20px_rgba(0,0,0,0.2)]">
             {menuItems.map((item) => {
               const isActive = activeSection === item.href.slice(1);
               return (
@@ -110,23 +110,19 @@ export default function Header() {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href.slice(1))}
-                  className={`text-sm font-medium transition-all duration-300 relative py-1 ${
+                  className={`text-xs uppercase tracking-wider font-mono font-bold transition-all duration-300 relative px-4.5 py-2 rounded-full cursor-pointer select-none ${
                     isActive 
-                      ? "text-court-neon font-bold scale-105 drop-shadow-[0_0_8px_rgba(34,197,94,0.35)]" 
-                      : "text-gray-300 hover:text-court-neon"
+                      ? "text-dark-bg" 
+                      : "text-gray-400 hover:text-white"
                   }`}
                 >
-                  {item.label}
-                  {/* Sliding glowing dot indicator under active item */}
+                  <span className="relative z-10 transition-colors duration-300">{item.label}</span>
                   {isActive && (
                     <motion.div
                       layoutId="activeNavBubble"
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-court-neon shadow-[0_0_8px_#22c55e]"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      className="absolute inset-0 bg-gradient-to-r from-court-neon to-court-emerald rounded-full shadow-[0_0_15px_rgba(163,230,53,0.45)] border border-court-neon/45"
+                      transition={{ type: "spring", stiffness: 380, damping: 28 }}
                     />
-                  )}
-                  {!isActive && (
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-court-neon/50 transition-all duration-200 hover:w-full" />
                   )}
                 </a>
               );
@@ -182,7 +178,7 @@ export default function Header() {
             className="lg:hidden w-full bg-dark-bg/95 border-b border-white/10 backdrop-blur-lg overflow-hidden absolute top-full left-0 shadow-2xl"
           >
             <div className="px-4 py-6 space-y-4 max-h-[80vh] overflow-y-auto">
-              <nav className="flex flex-col space-y-3">
+              <nav className="flex flex-col space-y-2.5">
                 {menuItems.map((item, idx) => {
                   const isActive = activeSection === item.href.slice(1);
                   return (
@@ -193,10 +189,10 @@ export default function Header() {
                       key={item.label}
                       href={item.href}
                       onClick={(e) => scrollToSection(e, item.href.slice(1))}
-                      className={`text-base font-medium transition-all py-2 border-b border-white/5 flex items-center justify-between ${
+                      className={`text-base font-bold transition-all py-2.5 px-3 rounded-xl flex items-center justify-between relative overflow-hidden ${
                         isActive 
-                          ? "text-court-neon pl-2 font-bold bg-white/[0.02]" 
-                          : "text-gray-300 hover:text-court-neon hover:pl-2"
+                          ? "text-court-neon bg-gradient-to-r from-court-neon/10 to-transparent border-l-2 border-court-neon pl-4 shadow-[inset_1px_0_0_rgba(163,230,53,0.1)]" 
+                          : "text-gray-300 hover:text-white hover:bg-white/[0.02] border-l-2 border-transparent pl-2 hover:pl-4"
                       }`}
                     >
                       <span>{item.label}</span>
