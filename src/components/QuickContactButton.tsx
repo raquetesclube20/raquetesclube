@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { MessageCircle, X, Phone, Clock, ShieldAlert, CheckCircle2, MapPin } from "lucide-react";
+import { MessageCircle, X, CheckCircle2, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-interface QuickContactButtonProps {
-  activeUnit: number;
-}
-
-export default function QuickContactButton({ activeUnit }: QuickContactButtonProps) {
+export default function QuickContactButton() {
   const [expanded, setExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -18,18 +14,6 @@ export default function QuickContactButton({ activeUnit }: QuickContactButtonPro
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
-
-  const unitData = activeUnit === 2 ? {
-    name: "Unidade 2 - Nova Odessa",
-    phone: "(19) 99765-0227",
-    phoneRaw: "5519997650227",
-    text: "Olá! Gostaria de falar com o Raquetes Clube - Unidade Nova Odessa."
-  } : {
-    name: "Unidade 1 - Americana",
-    phone: "(19) 99123-4451",
-    phoneRaw: "5519991234451",
-    text: "Olá! Gostaria de falar com o Raquetes Clube - Unidade Americana."
-  };
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">

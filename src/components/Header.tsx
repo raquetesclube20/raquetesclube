@@ -8,12 +8,12 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("");
 
   const menuItems = [
+    { label: "Unidades", href: "#unidades" },
     { label: "Modalidades", href: "#modalidades" },
     { label: "Aulas", href: "#aulas" },
     { label: "O Clube", href: "#experiencia" },
     { label: "Agenda", href: "#agenda" },
     { label: "Rankings", href: "#rankings" },
-    { label: "Unidades", href: "#unidades" },
     { label: "Galeria", href: "#galeria" },
   ];
 
@@ -102,7 +102,7 @@ export default function Header() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1.5 bg-white/[0.02] border border-white/5 p-1 rounded-full backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_4px_20px_rgba(0,0,0,0.2)]">
+          <nav className="hidden lg:flex items-center gap-1 bg-white/[0.02] border border-white/5 p-1 rounded-full backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_4px_20px_rgba(0,0,0,0.2)]">
             {menuItems.map((item) => {
               const isActive = activeSection === item.href.slice(1);
               return (
@@ -110,7 +110,7 @@ export default function Header() {
                   key={item.label}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href.slice(1))}
-                  className={`text-xs uppercase tracking-wider font-mono font-bold transition-all duration-300 relative px-4.5 py-2 rounded-full cursor-pointer select-none ${
+                  className={`text-[10px] uppercase tracking-wider font-mono font-bold transition-all duration-300 relative px-3 py-1.5 rounded-full cursor-pointer select-none ${
                     isActive 
                       ? "text-dark-bg" 
                       : "text-gray-400 hover:text-white"
