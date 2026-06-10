@@ -1,0 +1,6 @@
+{
+  "name": "Raquetes Clube 2.0",
+  "description": "Plataforma digital e landing page premium do Raquetes Clube em Americana. Experiência esportiva boutique de alta performance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
