@@ -17,7 +17,7 @@ export default function App() {
     <div className="min-h-screen bg-dark-bg text-slate-100 flex flex-col relative" id="app-root-frame">
       {/* Decorative global mesh or lighting dots */}
       <div className="absolute top-[15%] right-[-10%] w-[40%] h-[40%] bg-gradient-to-tr from-court-neon/5 to-court-emerald/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-[60%] left-[-15%] w-[45%] h-[45%] bg-gradient-to-br from-clay-orange/5 to-amber-500/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-[60%] left-[-15%] w-[45%] h-[45%] bg-gradient-to-br from-sand-warm/5 to-clay-orange/5 rounded-full blur-[140px] pointer-events-none" />
 
       {/* Navigation Header bar */}
       <Header />
@@ -43,4 +43,3 @@ export default function App() {
     </div>
   );
 }
-

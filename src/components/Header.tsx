@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Calendar, MessageCircle, ShieldCheck } from "lucide-react";
+import { Menu, X, Calendar, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import logo from "../../assets/logo.png";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -88,8 +89,8 @@ export default function Header() {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}>
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-court-neon to-court-emerald flex items-center justify-center glow-neon transition-transform duration-300 group-hover:rotate-12">
-              <span className="font-display font-extrabold text-dark-bg text-lg">R</span>
+            <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center glow-neon transition-transform duration-300 group-hover:rotate-6 overflow-hidden p-1">
+              <img src={logo} alt="Raquetes Clube" className="w-full h-full object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-extrabold text-xl tracking-tight text-white group-hover:text-court-neon transition-colors">
@@ -120,7 +121,7 @@ export default function Header() {
                   {isActive && (
                     <motion.div
                       layoutId="activeNavBubble"
-                      className="absolute inset-0 bg-gradient-to-r from-court-neon to-court-emerald rounded-full shadow-[0_0_15px_rgba(163,230,53,0.45)] border border-court-neon/45"
+                      className="absolute inset-0 bg-gradient-to-r from-court-neon to-sand-warm rounded-full shadow-[0_0_15px_rgba(8,174,234,0.45)] border border-court-neon/45"
                       transition={{ type: "spring", stiffness: 380, damping: 28 }}
                     />
                   )}
@@ -191,12 +192,12 @@ export default function Header() {
                       onClick={(e) => scrollToSection(e, item.href.slice(1))}
                       className={`text-base font-bold transition-all py-2.5 px-3 rounded-xl flex items-center justify-between relative overflow-hidden ${
                         isActive 
-                          ? "text-court-neon bg-gradient-to-r from-court-neon/10 to-transparent border-l-2 border-court-neon pl-4 shadow-[inset_1px_0_0_rgba(163,230,53,0.1)]" 
+                          ? "text-court-neon bg-gradient-to-r from-court-neon/10 to-transparent border-l-2 border-court-neon pl-4 shadow-[inset_1px_0_0_rgba(8,174,234,0.1)]" 
                           : "text-gray-300 hover:text-white hover:bg-white/[0.02] border-l-2 border-transparent pl-2 hover:pl-4"
                       }`}
                     >
                       <span>{item.label}</span>
-                      {isActive && <div className="w-1.5 h-1.5 rounded-full bg-court-neon shadow-[0_0_6px_#22c55e]" />}
+                      {isActive && <div className="w-1.5 h-1.5 rounded-full bg-court-neon shadow-[0_0_6px_#08aeea]" />}
                     </motion.a>
                   );
                 })}

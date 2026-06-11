@@ -15,21 +15,21 @@ export default function Hero() {
       icon: Trophy,
       title: "Rankings Ativos",
       desc: "Competição amigável o ano inteiro.",
-      color: "border-orange-500/20 hover:border-orange-500/50 text-orange-400 bg-orange-500/5",
+      color: "border-sand-warm/20 hover:border-sand-warm/50 text-sand-warm bg-sand-warm/5",
       delay: 0.2
     },
     {
       icon: Users,
       title: "Aulas para todos",
       desc: "Iniciante ao avançado com profissionais.",
-      color: "border-cyan-400/20 hover:border-cyan-400/50 text-cyan-400 bg-cyan-400/5",
+      color: "border-squash-cyan/20 hover:border-squash-cyan/50 text-squash-cyan bg-squash-cyan/5",
       delay: 0.3
     },
     {
       icon: Shield,
       title: "Torneios e Club",
       desc: "Eventos exclusivos e bar gourmet.",
-      color: "border-purple-400/20 hover:border-purple-400/50 text-purple-400 bg-purple-400/5",
+      color: "border-clay-orange/20 hover:border-clay-orange/50 text-clay-orange bg-clay-orange/5",
       delay: 0.4
     }
   ];
@@ -51,7 +51,7 @@ export default function Hero() {
       {/* Visual background gradient layers simulating spot lights on a dark court */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-court-neon/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-court-emerald/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute top-[30%] right-[10%] w-[35%] h-[35%] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[30%] right-[10%] w-[35%] h-[35%] bg-sand-warm/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">

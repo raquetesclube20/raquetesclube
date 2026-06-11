@@ -213,11 +213,11 @@ export default function Unidades({ activeUnit, setActiveUnit }: UnidadesProps) {
           {/* Header Row */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <span className="text-xs font-mono tracking-[0.2em] text-pink-500 uppercase block mb-3">
+              <span className="text-xs font-mono tracking-[0.2em] text-court-neon uppercase block mb-3">
                 • CONEXÃO INSTAGRAM ONLINE •
               </span>
               <h3 className="font-display font-black text-2xl sm:text-3xl md:text-4xl text-white tracking-tight">
-                Siga-nos <span className="text-pink-500">@raquetesclube</span> no Instagram
+                Siga-nos <span className="text-court-neon">@raquetesclube</span> no Instagram
               </h3>
               <p className="text-gray-400 text-xs sm:text-sm mt-2 max-w-2xl leading-relaxed">
                 Acompanhe o dia a dia do maior clube boutique de Americana! Publicamos diariamente ralis fantásticos, bastidores dos rankings, avisos de quadras cobertas das chuvas e novidades exclusivas.
@@ -229,7 +229,7 @@ export default function Unidades({ activeUnit, setActiveUnit }: UnidadesProps) {
               href="https://www.instagram.com/raquetesclube"
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-3 rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:opacity-90 text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer transition-opacity shadow-lg shadow-pink-500/10 shrink-0"
+              className="px-5 py-3 rounded-xl bg-gradient-to-r from-court-neon to-sand-warm hover:opacity-90 text-dark-bg text-xs font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer transition-opacity shadow-lg shadow-court-neon/10 shrink-0"
             >
               <Instagram className="w-4.5 h-4.5" />
               Seguir no Instagram
@@ -245,7 +245,7 @@ export default function Unidades({ activeUnit, setActiveUnit }: UnidadesProps) {
                 href="https://www.instagram.com/raquetesclube"
                 target="_blank"
                 rel="noreferrer"
-                className="group relative h-[360px] bg-panel-dark/40 border border-white/5 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-pink-500/30 transition-all duration-300"
+                className="group relative h-[360px] bg-panel-dark/40 border border-white/5 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-court-neon/30 transition-all duration-300"
               >
                 {/* Image Section */}
                 <div className="relative h-[220px] overflow-hidden">
@@ -258,7 +258,7 @@ export default function Unidades({ activeUnit, setActiveUnit }: UnidadesProps) {
                   {/* Overlay on Hover */}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-6">
                     <div className="flex items-center gap-1.5 text-white font-bold text-sm">
-                      <Heart className="w-5 h-5 fill-pink-500 text-pink-500" />
+                      <Heart className="w-5 h-5 fill-sand-warm text-sand-warm" />
                       {post.likes}
                     </div>
                     <div className="flex items-center gap-1.5 text-white font-bold text-sm">
@@ -267,7 +267,7 @@ export default function Unidades({ activeUnit, setActiveUnit }: UnidadesProps) {
                     </div>
                   </div>
                   {/* Header Badge */}
-                  <span className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-[9px] font-mono font-bold uppercase py-1 px-3 rounded-full border border-pink-500/30 text-pink-500 flex items-center gap-1">
+                  <span className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-[9px] font-mono font-bold uppercase py-1 px-3 rounded-full border border-court-neon/30 text-court-neon flex items-center gap-1">
                     <Instagram className="w-3 h-3" />
                     @raquetesclube
                   </span>
@@ -281,7 +281,7 @@ export default function Unidades({ activeUnit, setActiveUnit }: UnidadesProps) {
                   
                   <div className="flex justify-between items-center mt-3 pt-3 border-t border-white/5 text-[10px] font-mono text-gray-500">
                     <span>{post.date}</span>
-                    <span className="text-pink-500 font-bold group-hover:underline flex items-center gap-0.5">
+                    <span className="text-court-neon font-bold group-hover:underline flex items-center gap-0.5">
                       Ver no Instagram
                       <ExternalLink className="w-2.5 h-2.5" />
                     </span>

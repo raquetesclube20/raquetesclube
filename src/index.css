@@ -6,16 +6,16 @@
   --font-display: "Space Grotesk", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Premium thematic colors for a high-end racket & sand club */
-  --color-court-neon: #a3e635;      /* neon court green/lime (lime-400) */
-  --color-court-emerald: #10b981;   /* rich deep lawn/saibro green (emerald-500) */
-  --color-sand-warm: #fde047;       /* beach tennis yellow sand (yellow-300) */
-  --color-clay-orange: #f97316;     /* premium saibro dirt clay orange (orange-500) */
-  --color-squash-cyan: #06b6d4;     /* high speed squash glass court blue (cyan-500) */
+  /* Raquetes Clube logo palette: vibrant sky blue, solar yellow, white and deep contrast */
+  --color-court-neon: #08aeea;      /* logo blue, primary action color */
+  --color-court-emerald: #0578b8;   /* deeper athletic blue for gradients */
+  --color-sand-warm: #ffdc4a;       /* logo yellow, warm secondary accent */
+  --color-clay-orange: #f7b928;     /* golden yellow support tone */
+  --color-squash-cyan: #5bd7ff;     /* light blue highlight */
   
-  --color-dark-bg: #030712;         /* ultra deep premium dark base */
-  --color-panel-dark: #0f172a;      /* slate darker gray for panels */
-  --color-panel-glass: rgba(15, 23, 42, 0.65); /* translucent panel */
+  --color-dark-bg: #03121c;         /* deep navy base for logo contrast */
+  --color-panel-dark: #082233;      /* blue-black panels */
+  --color-panel-glass: rgba(8, 34, 51, 0.65); /* translucent panel */
   
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
@@ -25,28 +25,28 @@
 @layer utilities {
   /* Dynamic glowing indicators */
   .glow-neon {
-    box-shadow: 0 0 20px rgba(163, 230, 53, 0.25);
+    box-shadow: 0 0 20px rgba(8, 174, 234, 0.28);
   }
   .glow-cyan {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
+    box-shadow: 0 0 20px rgba(91, 215, 255, 0.25);
   }
   .glow-clay {
-    box-shadow: 0 0 20px rgba(249, 115, 22, 0.25);
+    box-shadow: 0 0 20px rgba(255, 220, 74, 0.25);
   }
   
   /* Text gradients */
   .text-gradient-neon {
-    background: linear-gradient(135deg, #a3e635 0%, #10b981 100%);
+    background: linear-gradient(135deg, #5bd7ff 0%, #08aeea 52%, #0578b8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   .text-gradient-sand {
-    background: linear-gradient(135deg, #fde047 0%, #f97316 100%);
+    background: linear-gradient(135deg, #ffef8a 0%, #ffdc4a 55%, #f7b928 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   .text-gradient-cyber {
-    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    background: linear-gradient(135deg, #5bd7ff 0%, #08aeea 50%, #0578b8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -54,8 +54,8 @@
 
 /* Custom styles for high-fidelity interactive elements */
 ::selection {
-  background-color: #a3e635;
-  color: #030712;
+  background-color: #ffdc4a;
+  color: #03121c;
 }
 
 /* Smooth custom scrollbars for premium look */
@@ -63,14 +63,14 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #030712;
+  background: #03121c;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #0d3751;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #08aeea;
 }
 
 html {
@@ -79,7 +79,7 @@ html {
 }
 
 body {
-  background-color: #030712;
+  background-color: #03121c;
   color: #f8fafc;
   font-family: var(--font-sans);
 }

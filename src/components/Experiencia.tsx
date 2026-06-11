@@ -45,7 +45,7 @@ export default function Experiencia() {
     <section className="relative py-20 bg-dark-bg/90 border-t border-b border-white/5" id="experiencia">
       {/* Background radial highlight */}
       <div className="absolute top-[20%] left-[-10%] w-[45%] h-[45%] bg-court-neon/5 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[-10%] w-[45%] h-[45%] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[45%] h-[45%] bg-sand-warm/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

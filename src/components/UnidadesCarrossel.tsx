@@ -245,7 +245,7 @@ export default function UnidadesCarrossel() {
                 }}
                 className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                   currentIndex === idx 
-                    ? "w-8 bg-court-neon shadow-[0_0_8px_#a3e635]" 
+                    ? "w-8 bg-court-neon shadow-[0_0_8px_#08aeea]" 
                     : "w-2.5 bg-white/10 hover:bg-white/25"
                 }`}
                 aria-label={`Ir para slide ${idx + 1}`}

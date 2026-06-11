@@ -75,10 +75,10 @@ export default function Modalidades() {
               >
                 {/* Glow bar top on card hover */}
                 <div className={`absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r opacity-40 group-hover:opacity-100 transition-opacity ${
-                  modality.id === 'tenis' ? 'from-court-neon to-court-emerald' :
-                  modality.id === 'beach-tennis' ? 'from-amber-400 to-clay-orange' :
-                  modality.id === 'squash' ? 'from-cyan-400 to-blue-600' :
-                  'from-purple-400 to-indigo-600'
+                  modality.id === 'tenis' ? 'from-squash-cyan to-court-emerald' :
+                  modality.id === 'beach-tennis' ? 'from-sand-warm to-clay-orange' :
+                  modality.id === 'squash' ? 'from-court-neon to-court-emerald' :
+                  'from-court-emerald to-sand-warm'
                 }`} />
 
                 <div>

@@ -7,7 +7,7 @@ export const MODALITIES: Modality[] = [
     description: "Tradição, tática e precisão em quadras de saibro premium totalmente preparadas.",
     longDescription: "Nossas quadras de saibro oferecem a drenagem ideal e são impecavelmente mantidas para garantir o salto perfeito da bola. Venha disputar partidas casuais, aprimorar seu forehand ou competir em nossos rankings integrados.",
     icon: "Activity",
-    color: "from-lime-400 to-emerald-600",
+    color: "from-squash-cyan to-court-emerald",
     courtCount: 4
   },
   {
@@ -16,7 +16,7 @@ export const MODALITIES: Modality[] = [
     description: "A energia vibrante da praia, esporte super dinâmico e o melhor clima de comunidade.",
     longDescription: "Esporte que mais cresce no Brasil, o beach tennis une simplicidade, queima calórica e um ambiente relaxado de amizade. Nossas quadras têm areia tratada antitérmica com iluminação LED de última geração.",
     icon: "Sun",
-    color: "from-amber-400 to-orange-500",
+    color: "from-sand-warm to-clay-orange",
     courtCount: 6
   },
   {
@@ -25,7 +25,7 @@ export const MODALITIES: Modality[] = [
     description: "Dinâmico, estratégico e de alto gasto calórico em arenas climatizadas.",
     longDescription: "Acelere suas decisões, treine seus reflexos e divirta-se em quadras fechadas com tecnologia avançada de amortecimento no piso. Perfeita para quem busca performance e eficiência no treino.",
     icon: "Zap",
-    color: "from-cyan-400 to-blue-600",
+    color: "from-court-neon to-court-emerald",
     courtCount: 2
   },
   {
@@ -34,7 +34,7 @@ export const MODALITIES: Modality[] = [
     description: "O esporte febre tradicional de Americana. Trocas rápidas e pura adrenalina.",
     longDescription: "Mais leve, com raquetes mais curtas e bolas de menor pressão, a raquetinha é uma modalidade extremamente ágil e viciante criada e desenvolvida com paixão na nossa região. Venha experimentar os ralis mais dinâmicos do clube.",
     icon: "Target",
-    color: "from-rose-400 to-red-600",
+    color: "from-court-emerald to-sand-warm",
     courtCount: 3
   },
   {
@@ -43,7 +43,7 @@ export const MODALITIES: Modality[] = [
     description: "Multiesportes na areia especial para vôlei de praia, futevôlei e treinos funcionais.",
     longDescription: "Para além do beach tennis, nossa estrutura de areia apoia treinos esportivos focados em mobilidade e força, vôlei de praia e futevôlei com grupos amadores e alta energia de finais de semana.",
     icon: "Flame",
-    color: "from-yellow-400 to-amber-500",
+    color: "from-sand-warm to-court-neon",
     courtCount: 2
   },
   {
@@ -52,7 +52,7 @@ export const MODALITIES: Modality[] = [
     description: "Aprenda com metodologia própria de professores formados e experientes.",
     longDescription: "Acelere sua técnica! Oferecemos aulas individuais ou em turmas reduzidas para todos os níveis, desde quem nunca segurou uma raquete até atletas que querem refinar detalhes táticos para torneios.",
     icon: "Award",
-    color: "from-purple-400 to-indigo-600",
+    color: "from-squash-cyan to-sand-warm",
     courtCount: 0
   }
 ];
