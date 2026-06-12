@@ -3,37 +3,80 @@ import { motion, AnimatePresence } from "motion/react";
 import { MapPin, Phone, MessageCircle, Navigation, ChevronLeft, ChevronRight, Check } from "lucide-react";
 import americanaImg from "../../assets/americana.png";
 import novaOdessaImg from "../../assets/nova_odessa.png";
+import americanaVideo1 from "../../assets/americana/vids/1am_torneio.MP4";
+import americanaVideo2 from "../../assets/americana/vids/2am_torneio2.MP4";
+import americanaPhoto2 from "../../assets/americana/asrfotografiaesportiva-217_2250743_224563.jpg";
+import americanaPhoto3 from "../../assets/americana/raquetes aerea.png";
+import americanaPhoto4 from "../../assets/americana/raquetes2.jpeg";
+import americanaPhoto5 from "../../assets/americana/WhatsApp Image 2024-11-13 at 08.59.00 (2).jpeg";
+import novaOdessaVideo3 from "../../assets/nova-odessa/vids/13no_por do sol.mp4";
+import novaOdessaVideo4 from "../../assets/nova-odessa/vids/14nodrone.mp4";
+import novaOdessaVideo5 from "../../assets/nova-odessa/vids/WhatsApp Video 2026-06-06 at 16.52.45.mp4";
+import novaOdessaPhoto1 from "../../assets/nova-odessa/no.jpeg";
+import novaOdessaPhoto2 from "../../assets/nova-odessa/WhatsApp Image 2026-05-28 at 17.52.19 (1).jpeg";
+
+type UnitMedia = {
+  type: "video" | "image";
+  src: string;
+  label: string;
+};
 
 export default function UnidadesCarrossel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mediaIndex, setMediaIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for left, 1 for right
   const [isHovered, setIsHovered] = useState(false);
   const autoplayTimer = useRef<NodeJS.Timeout | null>(null);
+  const mediaAutoplayTimer = useRef<NodeJS.Timeout | null>(null);
+
+  const americanaMedia: UnitMedia[] = [
+    { type: "video", src: americanaVideo1, label: "Raquetes Clube Americana" },
+    { type: "video", src: americanaVideo2, label: "Torneio em quadra" },
+    { type: "image", src: americanaPhoto5, label: "Familia Raquetes" },
+    { type: "image", src: americanaPhoto2, label: "Jogos Americana" },
+    { type: "image", src: americanaPhoto3, label: "Quadras Americana" },
+    { type: "video", src: americanaVideo2, label: "Vista aerea" },
+    { type: "image", src: americanaPhoto4, label: "Raquetes Clube Americana" },
+  ];
+
+  const novaOdessaMedia: UnitMedia[] = [
+    { type: "video", src: novaOdessaVideo4, label: "Raquetes Clube Nova Odessa" },
+    { type: "video", src: novaOdessaVideo3, label: "Por do sol" },
+    { type: "video", src: novaOdessaVideo5, label: "Bastidores Nova Odessa" },
+    { type: "image", src: novaOdessaPhoto1, label: "Estrutura Nova Odessa" },
+    { type: "image", src: novaOdessaPhoto2, label: "Unidade Nova Odessa" },
+  ];
 
   const UNIDADES = [
     {
       id: 1,
       name: "Unidade Americana",
-      tagline: "Sede Principal · Tênis, Squash e Raquetinha",
-      address: "Av. de Cillo, 4451 - Parque Novo Mundo, Americana - SP, 13467-600",
-      phone: "(19) 99123-4451",
-      phoneRaw: "5519991234451",
-      description: "Nossa sede tradicional em Americana-SP oferece infraestrutura completa com foco em Tênis de Saibro, Squash climatizado e a tradicional Raquetinha. Conta com vestiários amplos, lanchonete gourmet com vista panorâmica para as quadras, estacionamento interno e ambiente familiar ideal para pós-jogo.",
-      courts: ["4 Quadras de Saibro Premium", "2 Quadras de Squash Climatizadas", "3 Quadras de Raquetinha Rápida"],
-      directionLink: "https://maps.google.com/?q=Av.+de+Cillo,+4451+-+Parque+Novo+Mundo,+Americana+-+SP,+13467-600",
-      image: americanaImg
+      tagline: "Tênis, raquetinha, squash, beach tennis e quadra de areia",
+      address: "Av. de Cillo, 4451 - Pq Novo Mundo, Americana - SP",
+      phone: "(19) 98152-2647",
+      phoneRaw: "5519981522647",
+      description: "Nossa unidade em Americana-SP reúne tênis, raquetinha, squash, beach tennis e quadra de areia em uma estrutura completa para treinos, aulas, partidas e convivência no clube.",
+      courts: ["Tênis", "Raquetinha", "Squash", "Beach Tennis", "Quadra de Areia"],
+      directionLink: "https://maps.google.com/?q=Av.+de+Cillo,+4451+-+Pq+Novo+Mundo,+Americana+-+SP",
+      pagePath: `${import.meta.env.BASE_URL}americana`,
+      heroVideo: americanaVideo1,
+      image: americanaImg,
+      media: americanaMedia
     },
     {
       id: 2,
       name: "Unidade Nova Odessa",
-      tagline: "Eco Arena · Beach Tennis e Esportes de Areia",
-      address: "Chácara Sol Nascente - Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa - SP, 13381-060",
-      phone: "(19) 99765-0227",
-      phoneRaw: "5519997650227",
-      description: "Uma verdadeira chácara-arena integrada à natureza em Nova Odessa-SP. Totalmente dedicada a esportes de areia, como Beach Tennis, Futevôlei e Funcional de Areia. Oferece quiosques privativos equipados com churrasqueiras para eventos, lounge rústico avarandado, playground de areia para crianças e duchas refrescantes pós-treino.",
-      courts: ["6 Quadras de Areia Premium Tratada", "Iluminação LED Antirreflexo", "Lounge Gourmet e Playground Infantil"],
-      directionLink: "https://maps.google.com/?q=Av.+Cinco,+227+-+Bosque+dos+Eucaliptos,+Nova+Odessa+-+SP,+13381-060",
-      image: novaOdessaImg
+      tagline: "Tênis e raquetinha",
+      address: "Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa - SP",
+      phone: "(19) 92012-7054",
+      phoneRaw: "5519920127054",
+      description: "Nossa unidade em Nova Odessa-SP atende jogadores de tênis e raquetinha com estrutura objetiva, acolhedora e preparada para partidas, treinos e aulas.",
+      courts: ["Tênis", "Raquetinha"],
+      directionLink: "https://maps.google.com/?q=Av.+Cinco,+227+-+Bosque+dos+Eucaliptos,+Nova+Odessa+-+SP",
+      pagePath: `${import.meta.env.BASE_URL}nova-odessa`,
+      heroVideo: novaOdessaVideo4,
+      image: novaOdessaImg,
+      media: novaOdessaMedia
     }
   ];
 
@@ -67,12 +110,20 @@ export default function UnidadesCarrossel() {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + UNIDADES.length) % UNIDADES.length);
   };
 
+  const nextMedia = () => {
+    setMediaIndex((prevIndex) => (prevIndex + 1) % activeUnit.media.length);
+  };
+
+  const prevMedia = () => {
+    setMediaIndex((prevIndex) => (prevIndex - 1 + activeUnit.media.length) % activeUnit.media.length);
+  };
+
   // Autoplay Logic
   useEffect(() => {
     if (!isHovered) {
       autoplayTimer.current = setInterval(() => {
         nextSlide();
-      }, 7000); // changes slide every 7 seconds
+      }, 18000);
     } else {
       if (autoplayTimer.current) clearInterval(autoplayTimer.current);
     }
@@ -83,6 +134,25 @@ export default function UnidadesCarrossel() {
   }, [isHovered]);
 
   const activeUnit = UNIDADES[currentIndex];
+  const activeMedia = activeUnit.media[mediaIndex] || activeUnit.media[0];
+
+  useEffect(() => {
+    setMediaIndex(0);
+  }, [currentIndex]);
+
+  useEffect(() => {
+    if (!isHovered) {
+      mediaAutoplayTimer.current = setInterval(() => {
+        setMediaIndex((prevIndex) => (prevIndex + 1) % activeUnit.media.length);
+      }, 9000);
+    } else if (mediaAutoplayTimer.current) {
+      clearInterval(mediaAutoplayTimer.current);
+    }
+
+    return () => {
+      if (mediaAutoplayTimer.current) clearInterval(mediaAutoplayTimer.current);
+    };
+  }, [currentIndex, isHovered]);
 
   return (
     <section 
@@ -91,11 +161,26 @@ export default function UnidadesCarrossel() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      <video
+        key={`unit-bg-${activeUnit.id}`}
+        src={activeUnit.heroVideo}
+        poster={activeUnit.image}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 w-full h-full object-cover opacity-45 saturate-125"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-dark-bg/85 via-dark-bg/58 to-dark-bg/88 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-dark-bg/78 via-dark-bg/35 to-dark-bg/80 pointer-events-none" />
+
       {/* Background neon dynamic ambient spots */}
       <div className="absolute top-[20%] right-[-10%] w-[45%] h-[45%] bg-court-neon/5 rounded-full blur-[120px] pointer-events-none transition-all duration-1000" />
       <div className="absolute bottom-[20%] left-[-10%] w-[45%] h-[45%] bg-court-emerald/5 rounded-full blur-[120px] pointer-events-none transition-all duration-1000" />
 
-      {/* Decorative large active image blur in the absolute background (extremely premium effect) */}
+      {/* Active image blur in the background */}
       <div className="absolute inset-0 opacity-10 blur-[150px] scale-110 pointer-events-none transition-all duration-1000">
         <img 
           src={activeUnit.image} 
@@ -115,7 +200,7 @@ export default function UnidadesCarrossel() {
             Nossas <span className="text-gradient-neon font-extrabold">Unidades Clube</span>
           </h2>
           <p className="text-gray-300 text-sm md:text-base">
-            Conheça as sedes da maior rede esportiva de Americana e região. Navegue pelo carrossel abaixo e confira a localização e contatos rápidos.
+            Conheça nossas unidades em Americana e Nova Odessa. Navegue pelo carrossel abaixo e confira localização, modalidades e contatos rápidos.
           </p>
         </div>
 
@@ -135,13 +220,38 @@ export default function UnidadesCarrossel() {
                 transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch w-full"
               >
-                {/* Parallax Image Block */}
+                {/* Media Carousel Block */}
                 <div className="lg:col-span-6 relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl min-h-[280px] sm:min-h-[350px] lg:min-h-[460px] group">
-                  <img
-                    src={activeUnit.image}
-                    alt={activeUnit.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={`${activeUnit.id}-${mediaIndex}`}
+                      initial={{ opacity: 0, scale: 1.04 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.98 }}
+                      transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
+                      className="absolute inset-0"
+                    >
+                      {activeMedia.type === "video" ? (
+                        <video
+                          src={activeMedia.src}
+                          poster={activeUnit.image}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="metadata"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          aria-label={`${activeUnit.name}: ${activeMedia.label}`}
+                        />
+                      ) : (
+                        <img
+                          src={activeMedia.src}
+                          alt={`${activeUnit.name}: ${activeMedia.label}`}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/95 via-dark-bg/15 to-transparent" />
                   
                   {/* Overlaid Badges */}
@@ -151,12 +261,61 @@ export default function UnidadesCarrossel() {
                       {activeUnit.id === 1 ? "Americana - SP" : "Nova Odessa - SP"}
                     </span>
                   </div>
+
+                  <div className="absolute top-6 right-6 px-3 py-2 bg-black/60 backdrop-blur-md rounded-2xl border border-white/10">
+                    <span className="text-white font-mono font-bold text-[10px] uppercase tracking-widest">
+                      {activeMedia.type === "video" ? "Video" : "Foto"} {mediaIndex + 1}/{activeUnit.media.length}
+                    </span>
+                  </div>
+
+                  <div className="absolute bottom-10 left-6 right-6 flex items-center justify-between gap-4">
+                    <div className="min-w-0">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-court-neon block mb-1">
+                        {activeMedia.type === "video" ? "Midia em destaque" : "Galeria da unidade"}
+                      </span>
+                      <p className="text-white text-sm font-bold truncate">{activeMedia.label}</p>
+                    </div>
+
+                    <div className="flex items-center gap-2 shrink-0">
+                      <button
+                        onClick={prevMedia}
+                        className="w-9 h-9 rounded-full bg-black/50 hover:bg-court-neon text-white hover:text-dark-bg border border-white/10 hover:border-court-neon transition-colors flex items-center justify-center"
+                        aria-label="Midia anterior"
+                      >
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+                      <button
+                        onClick={nextMedia}
+                        className="w-9 h-9 rounded-full bg-black/50 hover:bg-court-neon text-white hover:text-dark-bg border border-white/10 hover:border-court-neon transition-colors flex items-center justify-center"
+                        aria-label="Proxima midia"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-5 left-6 right-6 flex gap-1.5">
+                    {activeUnit.media.map((media, idx) => (
+                      <button
+                        key={`${media.type}-${idx}`}
+                        onClick={() => setMediaIndex(idx)}
+                        className={`h-3 rounded-full transition-all duration-300 ${
+                          mediaIndex === idx
+                            ? "w-9 bg-court-neon shadow-[0_0_8px_rgba(8,174,234,0.8)]"
+                            : media.type === "video"
+                              ? "w-5 bg-white/35 hover:bg-white/60"
+                              : "w-4 bg-white/15 hover:bg-white/35"
+                        }`}
+                        aria-label={`Ver ${media.type === "video" ? "video" : "foto"} ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
                 </div>
 
                 {/* Info Display Block */}
                 <div className="lg:col-span-6 flex flex-col justify-between bg-panel-dark/40 border border-white/5 rounded-3xl p-6 sm:p-8 lg:p-10 text-left backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-court-neon mb-2 block">RAQUETES CLUBE AMERICANA v2.0</span>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-court-neon mb-2 block">RAQUETES CLUBE</span>
                     <h3 className="font-display font-black text-2xl sm:text-3xl text-white mb-2 leading-tight">
                       {activeUnit.name}
                     </h3>
@@ -192,7 +351,7 @@ export default function UnidadesCarrossel() {
                   </div>
 
                   {/* Actions Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-auto">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-auto">
                     <button
                       onClick={() => handleWhatsAppContact(activeUnit.phoneRaw, activeUnit.name)}
                       className="w-full py-3.5 px-4 rounded-xl bg-court-neon hover:bg-white text-dark-bg font-bold font-sans text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-white/5"
@@ -200,6 +359,13 @@ export default function UnidadesCarrossel() {
                       <MessageCircle className="w-4.5 h-4.5 fill-dark-bg" />
                       Falar no WhatsApp
                     </button>
+
+                    <a
+                      href={activeUnit.pagePath}
+                      className="w-full py-3.5 px-4 rounded-xl bg-sand-warm hover:bg-white text-dark-bg font-bold font-sans text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      Ver unidade
+                    </a>
 
                     <a
                       href={activeUnit.directionLink}

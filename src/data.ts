@@ -1,10 +1,10 @@
-import { Modality, RankingCategory, CoachingPlan, GalleryItem, CourtTimeSlot } from "./types";
+import { Modality, CoachingPlan, CourtTimeSlot } from "./types";
 
 export const MODALITIES: Modality[] = [
   {
     id: "tenis",
     name: "Tênis",
-    description: "Tradição, tática e precisão em quadras de saibro premium totalmente preparadas.",
+    description: "Tradição, tática e precisão para jogos e aulas de tênis.",
     longDescription: "Nossas quadras de saibro oferecem a drenagem ideal e são impecavelmente mantidas para garantir o salto perfeito da bola. Venha disputar partidas casuais, aprimorar seu forehand ou competir em nossos rankings integrados.",
     icon: "Activity",
     color: "from-squash-cyan to-court-emerald",
@@ -13,7 +13,7 @@ export const MODALITIES: Modality[] = [
   {
     id: "beach-tennis",
     name: "Beach Tennis",
-    description: "A energia vibrante da praia, esporte super dinâmico e o melhor clima de comunidade.",
+    description: "Modalidade na areia para jogos rápidos, aulas e grupos.",
     longDescription: "Esporte que mais cresce no Brasil, o beach tennis une simplicidade, queima calórica e um ambiente relaxado de amizade. Nossas quadras têm areia tratada antitérmica com iluminação LED de última geração.",
     icon: "Sun",
     color: "from-sand-warm to-clay-orange",
@@ -32,7 +32,7 @@ export const MODALITIES: Modality[] = [
     id: "raquetinha",
     name: "Raquetinha",
     description: "O esporte febre tradicional de Americana. Trocas rápidas e pura adrenalina.",
-    longDescription: "Mais leve, com raquetes mais curtas e bolas de menor pressão, a raquetinha é uma modalidade extremamente ágil e viciante criada e desenvolvida com paixão na nossa região. Venha experimentar os ralis mais dinâmicos do clube.",
+    longDescription: "Mais leve, com raquetes mais curtas e bolas de menor pressão, a raquetinha é uma modalidade ágil e tradicional na região. Uma boa opção para jogos rápidos e treinos em grupo.",
     icon: "Target",
     color: "from-court-emerald to-sand-warm",
     courtCount: 3
@@ -57,42 +57,6 @@ export const MODALITIES: Modality[] = [
   }
 ];
 
-export const RANKINGS: RankingCategory[] = [
-  {
-    id: "tenis-ranking",
-    modality: "Tênis (Categoria A)",
-    players: [
-      { position: 1, name: "Guilherme S. Prado", points: 2450, winRate: "84%", streak: 7, avatarUrl: "GP" },
-      { position: 2, name: "Thiago Vasconcellos", points: 2210, winRate: "78%", streak: 4, avatarUrl: "TV" },
-      { position: 3, name: "Rodrigo M. Dias", points: 2150, winRate: "75%", streak: -1, avatarUrl: "RD" },
-      { position: 4, name: "Lucas F. Zanaga", points: 1980, winRate: "69%", streak: 2, avatarUrl: "LZ" },
-      { position: 5, name: "Mateus Ribeiro", points: 1840, winRate: "64%", streak: 1, avatarUrl: "MR" }
-    ]
-  },
-  {
-    id: "beach-tennis-ranking",
-    modality: "Beach Tennis (Duplas Mistas A)",
-    players: [
-      { position: 1, name: "Bianca R. / Caio M.", points: 2900, winRate: "89%", streak: 12, avatarUrl: "BC" },
-      { position: 2, name: "Gabriela F. / André T.", points: 2640, winRate: "81%", streak: 5, avatarUrl: "GA" },
-      { position: 3, name: "Mariana L. / Diego K.", points: 2320, winRate: "74%", streak: -2, avatarUrl: "MD" },
-      { position: 4, name: "Camila N. / Vinicius Z.", points: 2180, winRate: "70%", streak: 3, avatarUrl: "CV" },
-      { position: 5, name: "Patrícia V. / Renato B.", points: 1950, winRate: "65%", streak: 1, avatarUrl: "PR" }
-    ]
-  },
-  {
-    id: "squash-ranking",
-    modality: "Squash (Divisão Elite)",
-    players: [
-      { position: 1, name: "Felipe Nogueira", points: 1850, winRate: "90%", streak: 9, avatarUrl: "FN" },
-      { position: 2, name: "Bruno Castilho", points: 1620, winRate: "76%", streak: 2, avatarUrl: "BC" },
-      { position: 3, name: "Arthur Schmidt", points: 1540, winRate: "72%", streak: -1, avatarUrl: "AS" },
-      { position: 4, name: "Gabriel Siqueira", points: 1410, winRate: "65%", streak: 1, avatarUrl: "GS" },
-      { position: 5, name: "Daniel de Souza", points: 1320, winRate: "58%", streak: -2, avatarUrl: "DS" }
-    ]
-  }
-];
-
 export const COACHING_PLANS: CoachingPlan[] = [
   {
     id: "iniciacao",
@@ -110,7 +74,7 @@ export const COACHING_PLANS: CoachingPlan[] = [
   {
     id: "intermediario",
     level: "Aprimoramento Técnico",
-    description: "Desenhada para jogadores que já trocam bola e buscam maior consistência tática, profundidade nos golpes, estratégia de saque, voleios eficientes e regularidade física.",
+    description: "Para jogadores que já trocam bola e buscam mais consistência, direção, saque e leitura de jogo.",
     benefits: [
       "Estratégia de jogo (Simples e Duplas)",
       "Transição de defesa para ataque",
@@ -123,54 +87,15 @@ export const COACHING_PLANS: CoachingPlan[] = [
   {
     id: "alta-performance",
     level: "Alta Performance & Competição",
-    description: "Treinamentos intensivos focados em preparação para torneios estaduais e rankings internos de ponta. Ritmo forte, tática avançada, preparação física de quadra e resiliência mental.",
+    description: "Treinos focados em preparação para torneios, rankings internos, tática de jogo e consistência em quadra.",
     benefits: [
-      "Simulações de match play real sob estresse",
+      "Situações de jogo e match play",
       "Ajustes táticos personalizados",
       "Suporte físico focado em deslocamento e flexibilidade",
       "Acompanhamento em chaves de torneios"
     ],
     duration: "1h15 por aula - Individuais ou Duplas de Performance",
     priceEstimate: "Sob consulta acadêmica"
-  }
-];
-
-export const GALLERY_ITEMS: GalleryItem[] = [
-  {
-    id: "g1",
-    title: "Torneio de Tênis de Outono",
-    category: "Torneios",
-    imageUrl: "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=600&auto=format&fit=crop"
-  },
-  {
-    id: "g2",
-    title: "Arena Beach Tennis Lotada",
-    category: "Comunidade",
-    imageUrl: "https://images.unsplash.com/photo-1547483238-f400e65ccd56?q=80&w=600&auto=format&fit=crop"
-  },
-  {
-    id: "g3",
-    title: "Clinica Técnica de Squash",
-    category: "Aulas",
-    imageUrl: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=600&auto=format&fit=crop"
-  },
-  {
-    id: "g4",
-    title: "Final de Semana de Raquetinha",
-    category: "Partidas",
-    imageUrl: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=600&auto=format&fit=crop"
-  },
-  {
-    id: "g5",
-    title: "Treinamento Funcional na Areia",
-    category: "Aulas",
-    imageUrl: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop"
-  },
-  {
-    id: "g6",
-    title: "Happy Hour do Raquetes Clube",
-    category: "Comunidade",
-    imageUrl: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=600&auto=format&fit=crop"
   }
 ];
 

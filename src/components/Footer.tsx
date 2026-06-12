@@ -1,5 +1,6 @@
 import React from "react";
-import { MapPin, Phone, Instagram, Calendar, Users, Award, Shield, ArrowUp } from "lucide-react";
+import { MapPin, Phone, Instagram, MessageCircle, ArrowUp } from "lucide-react";
+import logo from "../../assets/logo.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -33,32 +34,30 @@ export default function Footer() {
           
           {/* Logo & Slogan Column */}
           <div className="md:col-span-5 flex flex-col items-start text-left space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-court-neon to-court-emerald flex items-center justify-center glow-neon">
-                <span className="font-display font-extrabold text-dark-bg text-base">R</span>
-              </div>
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Raquetes Clube" className="w-12 h-12 object-contain drop-shadow-[0_0_14px_rgba(8,174,234,0.28)]" />
               <span className="font-display font-black text-xl tracking-tight text-white">
                 RAQUETES<span className="text-court-neon">CLUBE</span>
               </span>
             </div>
             
             <p className="text-gray-400 text-xs md:text-sm leading-relaxed max-w-sm">
-              Inovando a cena dos esportes de raquete e areia em Americana-SP com infraestrutura boutique de alto nível, academia especializada e rankings ativos.
+              Esportes de raquete, aulas e reservas em Americana e Nova Odessa-SP.
             </p>
 
             <div className="space-y-3.5 pt-2 text-xs text-gray-300">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-court-neon shrink-0 mt-0.5" />
                 <div>
-                  <span className="block font-bold text-[10px] uppercase font-mono text-court-neon">Unidade Americana</span>
-                  <span className="text-[11px] leading-relaxed">Av. de Cillo, 4451 - Parque Novo Mundo, Americana - SP, 13467-600</span>
+                  <a href={`${import.meta.env.BASE_URL}americana`} className="block font-bold text-[10px] uppercase font-mono text-court-neon hover:text-white transition-colors">Unidade Americana</a>
+                  <span className="text-[11px] leading-relaxed">Av. de Cillo, 4451 - Pq Novo Mundo, Americana - SP</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-court-emerald shrink-0 mt-0.5" />
                 <div>
-                  <span className="block font-bold text-[10px] uppercase font-mono text-court-emerald">Unidade Nova Odessa</span>
-                  <span className="text-[11px] leading-relaxed">Chácara Sol Nascente - Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa - SP, 13381-060</span>
+                  <a href={`${import.meta.env.BASE_URL}nova-odessa`} className="block font-bold text-[10px] uppercase font-mono text-court-emerald hover:text-white transition-colors">Unidade Nova Odessa</a>
+                  <span className="text-[11px] leading-relaxed">Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa - SP</span>
                 </div>
               </div>
             </div>
@@ -80,12 +79,11 @@ export default function Footer() {
           <div className="md:col-span-2 text-left space-y-4">
             <h4 className="text-xs font-mono tracking-widest text-white uppercase font-bold">Navegação</h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
-              <li><a href="#experiencia" onClick={(e) => handleScrollToSec(e, "experiencia")} className="hover:text-court-neon transition-colors">O Clube Boutique</a></li>
+              <li><a href="#experiencia" onClick={(e) => handleScrollToSec(e, "experiencia")} className="hover:text-court-neon transition-colors">O Clube</a></li>
               <li><a href="#unidades" onClick={(e) => handleScrollToSec(e, "unidades")} className="hover:text-court-neon transition-colors">Nossas Unidades</a></li>
               <li><a href="#agenda" onClick={(e) => handleScrollToSec(e, "agenda")} className="hover:text-court-neon transition-colors">Reserva de Quadras</a></li>
               <li><a href="#aulas" onClick={(e) => handleScrollToSec(e, "aulas")} className="hover:text-court-neon transition-colors">Aulas & Professores</a></li>
               <li><a href="#rankings" onClick={(e) => handleScrollToSec(e, "rankings")} className="hover:text-court-neon transition-colors">Tabelas de Ranking</a></li>
-              <li><a href="#galeria" onClick={(e) => handleScrollToSec(e, "galeria")} className="hover:text-court-neon transition-colors">Galeria de Fotos</a></li>
             </ul>
           </div>
 
@@ -105,13 +103,22 @@ export default function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://wa.me/5519999999999"
+                href="https://wa.me/5519981522647"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-xl bg-white/5 hover:bg-court-neon/15 hover:text-court-neon border border-white/10 flex items-center justify-center transition-colors text-white"
-                aria-label="WhatsApp Raquetes Clube"
+                aria-label="WhatsApp Raquetes Clube Americana"
               >
                 <Phone className="w-5 h-5" />
+              </a>
+              <a
+                href="https://wa.me/5519920127054"
+                target="_blank"
+                rel="noreferrer"
+                className="w-9 h-9 rounded-xl bg-white/5 hover:bg-court-neon/15 hover:text-court-neon border border-white/10 flex items-center justify-center transition-colors text-white"
+                aria-label="WhatsApp Raquetes Clube Nova Odessa"
+              >
+                <MessageCircle className="w-5 h-5" />
               </a>
             </div>
 
@@ -127,7 +134,7 @@ export default function Footer() {
         {/* Bottom row: copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-mono">
           <div>
-            <span>© {currentYear} Raquetes Clube Americana v2.0 • Todos os direitos reservados.</span>
+            <span>© {currentYear} Raquetes Clube • Todos os direitos reservados.</span>
           </div>
           
           <div className="flex items-center gap-4">

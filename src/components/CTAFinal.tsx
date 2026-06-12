@@ -43,12 +43,12 @@ export default function CTAFinal() {
           </h2>
 
           <p className="text-gray-300 text-base md:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            Reserve uma quadra premium, agende uma aula experimental de alta performance ou venha conhecer a melhor comunidade esportiva de Americana.
+            Reserve uma quadra, agende uma aula experimental ou venha conhecer nossa comunidade esportiva em Americana e Nova Odessa.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
             <a
-              href="https://wa.me/5519999999999?text=Ol%C3%A1%2C+Raquetes+Clube!+Gostaria+de+reservar+uma+quadra+ou+agendar+uma+aula+experimental."
+              href="https://wa.me/5519981522647?text=Ol%C3%A1%2C+Raquetes+Clube!+Gostaria+de+reservar+uma+quadra+ou+agendar+uma+aula+experimental."
               target="_blank"
               rel="noreferrer"
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider bg-court-neon hover:bg-white text-dark-bg transition-all duration-300 shadow-lg shadow-court-neon/15 hover:shadow-white/10 cursor-pointer font-sans"
@@ -69,7 +69,7 @@ export default function CTAFinal() {
 
           {/* Social reassurance tag */}
           <p className="text-[11px] font-mono text-gray-500 mt-8 uppercase tracking-widest leading-none">
-            • Americana • SP • Aberto todos os dias das 07h às 22h •
+            • Americana e Nova Odessa • SP • Aberto todos os dias das 07h às 22h •
           </p>
 
         </motion.div>

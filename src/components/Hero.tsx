@@ -28,7 +28,7 @@ export default function Hero() {
     {
       icon: Shield,
       title: "Torneios e Club",
-      desc: "Eventos exclusivos e bar gourmet.",
+      desc: "Jogos, eventos e convivência no clube.",
       color: "border-clay-orange/20 hover:border-clay-orange/50 text-clay-orange bg-clay-orange/5",
       delay: 0.4
     }
@@ -48,7 +48,7 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24 border-b border-white/5" id="hero-sec">
-      {/* Visual background gradient layers simulating spot lights on a dark court */}
+      {/* Background light layers */}
       <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-court-neon/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-court-emerald/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute top-[30%] right-[10%] w-[35%] h-[35%] bg-sand-warm/5 rounded-full blur-[100px] pointer-events-none" />
@@ -71,7 +71,7 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-court-neon"></span>
               </span>
               <span className="text-[11px] font-mono font-medium tracking-wider text-gray-300 uppercase">
-                Ambiente Boutique • Americana / SP
+                Raquetes Clube • Americana e Nova Odessa / SP
               </span>
             </motion.div>
 
@@ -80,9 +80,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display font-black text-4xl sm:text-5xl md:text-6xl tracking-tight text-white mb-6 leading-[1.05]"
+              className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-[3.35rem] tracking-tight text-white mb-6 leading-[1.08]"
             >
-              O novo ponto de encontro dos <span className="text-gradient-neon font-extrabold">esportes de raquete</span> em Americana
+              O novo ponto de encontro dos <span className="text-gradient-neon font-extrabold">esportes de raquete</span> em Americana e Nova Odessa
             </motion.h1>
 
             {/* Subheadline */}
@@ -92,7 +92,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.18 }}
               className="text-gray-300 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mb-8"
             >
-              Tênis, beach tennis, squash, raquetinha, aulas estruturadas, rankings dinâmicos e torneios integrados em uma experiência esportiva e social sem precedentes.
+              Tênis, beach tennis, squash, raquetinha, aulas, rankings e reservas em duas unidades no interior de São Paulo.
             </motion.p>
 
             {/* CTAs */}
@@ -127,16 +127,16 @@ export default function Hero() {
               className="grid grid-cols-3 gap-6 pt-4 border-t border-white/5 w-full max-w-md"
             >
               <div>
-                <span className="block font-display font-extrabold text-2xl md:text-3xl text-court-neon">17+</span>
-                <span className="block text-xs font-mono text-gray-400 mt-1 uppercase tracking-widest">Quadras Modernas</span>
+                <span className="block font-display font-extrabold text-2xl md:text-3xl text-court-neon">2</span>
+                <span className="block text-xs font-mono text-gray-400 mt-1 uppercase tracking-widest">Unidades</span>
               </div>
               <div>
-                <span className="block font-display font-extrabold text-2xl md:text-3xl text-white">450+</span>
-                <span className="block text-xs font-mono text-gray-400 mt-1 uppercase tracking-widest">Atletas Ativos</span>
+                <span className="block font-display font-extrabold text-2xl md:text-3xl text-white">5</span>
+                <span className="block text-xs font-mono text-gray-400 mt-1 uppercase tracking-widest">Modalidades</span>
               </div>
               <div>
-                <span className="block font-display font-extrabold text-2xl md:text-3xl text-court-neon">100%</span>
-                <span className="block text-xs font-mono text-gray-400 mt-1 uppercase tracking-widest">Drenagem Rápida</span>
+                <span className="block font-display font-extrabold text-2xl md:text-3xl text-court-neon">2</span>
+                <span className="block text-xs font-mono text-gray-400 mt-1 uppercase tracking-widest">Cidades</span>
               </div>
             </motion.div>
 
@@ -145,7 +145,7 @@ export default function Hero() {
           {/* Interactive Visual Right Side representing physical action */}
           <div className="lg:col-span-5 relative w-full h-[320px] sm:h-[400px] lg:h-[480px]">
             
-            {/* Ambient Background Panel Card with premium video */}
+            {/* Video panel */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -164,15 +164,16 @@ export default function Hero() {
               
               {/* Premium dark gradient overlay so text remains readable */}
               <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/85 via-black/20 to-black/30" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_62%_42%,rgba(8,174,234,0.18),transparent_38%)] pointer-events-none" />
 
-              {/* Decorative premium sport visual elements overlay */}
-              <div className="absolute inset-0 flex flex-col justify-between p-6">
+              {/* Sport information overlay */}
+              <div className="absolute inset-0 z-[3] flex flex-col justify-between p-6">
                 <div className="flex justify-between items-center bg-black/55 backdrop-blur-md rounded-2xl p-4 border border-white/10 shadow-lg">
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 rounded-full bg-court-neon" />
                     <div>
                       <p className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">Status das Quadras</p>
-                      <p className="text-xs font-bold text-white">Excelente estadia (Secas)</p>
+                      <p className="text-xs font-bold text-white">Atendimento em funcionamento</p>
                     </div>
                   </div>
                   <span className="text-[10px] font-mono py-1 px-2.5 rounded bg-court-neon/15 text-court-neon uppercase font-bold">Aberto</span>
@@ -189,14 +190,14 @@ export default function Hero() {
 
                 <div className="flex justify-between items-end gap-3">
                   <div className="bg-black/55 backdrop-blur-md p-3 rounded-xl border border-white/10 shadow-lg">
-                    <p className="text-[10px] font-mono text-gray-400 uppercase">Partida do Dia</p>
-                    <p className="text-xs font-bold text-white">Desafio de Saibro às 19h</p>
+                    <p className="text-[10px] font-mono text-gray-400 uppercase">Reservas</p>
+                    <p className="text-xs font-bold text-white">Confirme pelo WhatsApp</p>
                   </div>
                   
                   {/* Digital community stats badge */}
                   <div className="bg-court-neon text-dark-bg py-2 px-3.5 rounded-xl font-display font-extrabold text-xs flex items-center gap-1 shadow-lg">
                     <Users className="w-3.5 h-3.5" />
-                    +40 Reservas Hoje
+                    Reservas pelo WhatsApp
                   </div>
                 </div>
               </div>

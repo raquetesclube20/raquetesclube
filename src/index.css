@@ -50,6 +50,10 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .teacher-profile-bullets > li > span.text-court-neon {
+    display: none;
+  }
 }
 
 /* Custom styles for high-fidelity interactive elements */
@@ -76,10 +80,16 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px; /* Offset for sticky header */
+  overflow-x: hidden;
 }
 
 body {
   background-color: #03121c;
   color: #f8fafc;
   font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: clip;
 }

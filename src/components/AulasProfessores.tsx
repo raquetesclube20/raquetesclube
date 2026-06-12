@@ -6,6 +6,18 @@ import { Check, Calendar, MessageCircle, HelpCircle, Star, Sparkles, Smile, Arro
 import rogerioImg from "../../assets/rogerio.png";
 import lucianoImg from "../../assets/luciano.png";
 
+function TennisBallBullet() {
+  return (
+    <span
+      className="relative mt-1 h-3.5 w-3.5 shrink-0 rounded-full bg-sand-warm shadow-[0_0_10px_rgba(255,220,74,0.55)] overflow-hidden"
+      aria-hidden="true"
+    >
+      <span className="absolute -left-1 top-0 h-3.5 w-2.5 rounded-r-full border-r-2 border-dark-bg/45" />
+      <span className="absolute -right-1 top-0 h-3.5 w-2.5 rounded-l-full border-l-2 border-dark-bg/45" />
+    </span>
+  );
+}
+
 export default function AulasProfessores() {
   const [selectedPlanLevel, setSelectedPlanLevel] = useState<string>("Iniciação");
   const [activeTeacher, setActiveTeacher] = useState<any | null>(null);
@@ -24,7 +36,7 @@ export default function AulasProfessores() {
         "Formado em Educação Física e Administração, com MBA e Mestrado.",
         "Tenista de 1ª classe pela Federação Paulista de Tênis (FPT).",
         "Possui pontuação na ATP na categoria de duplas internacionais.",
-        "Especialista na formação de atletas de alta performance.",
+        "Experiência na formação e acompanhamento de atletas.",
         "Treinou e formou diversos professores renomados em Americana e região.",
         "Atua também como excelente professor universitário acadêmico."
       ],
@@ -44,7 +56,7 @@ export default function AulasProfessores() {
         "Trajetória completa no tênis, com profunda experiência prática e técnica.",
         "Atuou no desenvolvimento de atletas como respeitado rebatedor.",
         "Aulas consolidadas com bagagem em SP-Capital e cidade de Americana.",
-        "Reconhecido como um dos professores com a maior base de alunos da região.",
+        "Reconhecido pela atuação constante com alunos da região.",
         "Jogador competitivo de altíssimo nível na categoria de 1ª classe."
       ],
       tags: ["1ª classe", "Maior base de alunos", "SP & Americana", "Todas as fases"]
@@ -54,22 +66,32 @@ export default function AulasProfessores() {
   const otherSpecialties = [
     {
       title: "Treinos Personalizados (VIP)",
-      desc: "Aulas individuais com 100% de foco no seu desenvolvimento biomecânico e tático. Ideal para correções rápidas.",
+      desc: "Aulas individuais para trabalhar técnica, posicionamento e tomada de decisão em quadra.",
       ctaText: "Consultar Personal",
       icon: Star
     },
     {
       title: "Clínicas & Aulas em Grupo",
-      desc: "Aulas descontraídas de até 5 pessoas. Perfeitas para fazer novos amigos e treinar dinâmica de voleios.",
+      desc: "Aulas em grupo para treinar fundamentos, ritmo de jogo e troca de bola com outros alunos.",
       ctaText: "Ver Agenda de Grupos",
       icon: Smile
     }
   ];
 
   const handleOpenCoachInquiry = (planName: string) => {
-    const phone = "5519999999999";
-    const text = `Olá, Raquetes Clube! Gostaria de receber informações de turmas, horários livres e valores para o plano de aulas: *${planName}* em Americana.`;
+    const phone = "5519981522647";
+    const text = `Olá, Raquetes Clube! Gostaria de receber informações de turmas, horários livres e valores para o plano de aulas: *${planName}*.`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank");
+  };
+
+  const modalTextVariants = {
+    hidden: { opacity: 0, y: 18 },
+    visible: (delay = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.45, delay, ease: [0.22, 1, 0.36, 1] },
+    }),
+    exit: { opacity: 0, y: 10, transition: { duration: 0.18 } },
   };
 
   return (
@@ -189,7 +211,7 @@ export default function AulasProfessores() {
                 )}
 
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-court-neon mb-2 block">PLANO EVOLUÇÃO • v2.0</span>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-court-neon mb-2 block">PLANO EVOLUÇÃO</span>
                   <h3 className="font-display font-extrabold text-2xl text-white mb-3">{plan.level}</h3>
                   <p className="text-gray-300 text-xs md:text-sm leading-relaxed mb-6 border-b border-white/5 pb-5">
                     {plan.description}
@@ -277,64 +299,120 @@ export default function AulasProfessores() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActiveTeacher(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm"
+            className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md"
           >
             <motion.div
-              initial={{ scale: 0.95, y: 15, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.95, y: 15, opacity: 0 }}
-              className="relative w-full max-w-2xl bg-panel-dark border border-white/10 rounded-3xl p-6 sm:p-8 overflow-hidden shadow-2xl text-left"
+              key={activeTeacher.id}
+              initial={{ scale: 0.94, y: 28, opacity: 0, filter: "blur(8px)" }}
+              animate={{ scale: 1, y: 0, opacity: 1, filter: "blur(0px)" }}
+              exit={{ scale: 0.96, y: 18, opacity: 0, filter: "blur(8px)" }}
+              transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
+              className="relative min-h-full w-full max-w-6xl mx-auto px-4 py-20 sm:px-6 lg:min-h-screen lg:flex lg:items-center lg:overflow-visible text-left"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setActiveTeacher(null)}
-                className="absolute top-4 right-4 p-2 rounded-xl text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 transition-colors border border-white/5"
+                className="fixed top-4 right-4 z-[60] p-3 rounded-full text-white bg-black/65 hover:bg-black/85 transition-colors border border-white/15 backdrop-blur-md shadow-2xl"
+                aria-label="Fechar perfil"
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
 
-              <div className="flex flex-col sm:flex-row gap-6 items-start">
+              <div className="grid w-full lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-10 items-start lg:items-center">
                 {/* Photo in Modal */}
-                <div className="w-full sm:w-48 aspect-[4/5] sm:h-64 rounded-2xl overflow-hidden shrink-0 border border-white/10 relative">
+                <motion.div
+                  initial={{ opacity: 0, scale: 1.08, x: -24 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  exit={{ opacity: 0, scale: 1.04, x: -10 }}
+                  transition={{ duration: 0.82, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative overflow-visible flex items-end justify-center lg:justify-end"
+                >
                   <img
                     src={activeTeacher.image}
                     alt={activeTeacher.name}
-                    className="w-full h-full object-cover"
+                    className="relative z-10 max-h-[34vh] sm:max-h-[46vh] lg:max-h-[72vh] w-auto max-w-full object-contain drop-shadow-[0_32px_55px_rgba(0,0,0,0.62)]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/85 via-transparent to-transparent opacity-80" />
-                  <span className={`absolute bottom-3 left-3 backdrop-blur-md text-[9px] font-mono tracking-widest font-bold uppercase py-0.5 px-2 border rounded ${activeTeacher.badgeColor}`}>
-                    {activeTeacher.label}
-                  </span>
-                </div>
+                </motion.div>
 
                 {/* CV Content in Modal */}
-                <div className="flex-grow space-y-4">
-                  <div>
-                    <h3 className="font-display font-black text-2xl text-white">{activeTeacher.name}</h3>
+                <div className="relative z-10 px-1 sm:px-4 lg:px-0 py-4 lg:py-0 flex flex-col justify-center">
+                  <motion.div
+                    variants={modalTextVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    custom={0.22}
+                    className="mb-6"
+                  >
+                    <span className="text-[10px] font-mono tracking-[0.28em] text-court-neon uppercase block mb-3">
+                      Perfil tecnico
+                    </span>
+                    <h3 className="font-display font-black text-3xl sm:text-4xl text-white leading-tight">{activeTeacher.name}</h3>
                     <p className="text-xs font-mono tracking-wider font-bold text-court-neon uppercase mt-1">
                       {activeTeacher.title}
                     </p>
-                  </div>
+                  </motion.div>
 
-                  <ul className="space-y-2 text-xs text-gray-300 border-t border-b border-white/5 py-4">
+                  <motion.ul
+                    variants={modalTextVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    custom={0.34}
+                    className="teacher-profile-bullets space-y-3 text-sm text-gray-300 py-2"
+                  >
                     {activeTeacher.bullets.map((bullet: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-2">
+                      <motion.li
+                        key={idx}
+                        initial={{ opacity: 0, x: 18 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.36, delay: 0.44 + idx * 0.055 }}
+                        className="flex items-start gap-3"
+                      >
                         <span className="text-court-neon mt-0.5 shrink-0">•</span>
+                        <TennisBallBullet />
                         <span>{bullet}</span>
-                      </li>
+                      </motion.li>
                     ))}
-                  </ul>
+                  </motion.ul>
 
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {activeTeacher.tags.map((tag: string) => (
-                      <span
+                  <motion.div
+                    variants={modalTextVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    custom={0.72}
+                    className="flex flex-wrap gap-2 pt-6"
+                  >
+                    {activeTeacher.tags.map((tag: string, idx: number) => (
+                      <motion.span
                         key={tag}
-                        className="bg-white/5 border border-white/10 text-gray-400 text-[9px] font-mono uppercase px-2 py-0.5 rounded"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.28, delay: 0.78 + idx * 0.04 }}
+                        className="bg-white/5 text-gray-300 text-[10px] font-mono uppercase px-2.5 py-1 rounded-full"
                       >
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
-                  </div>
+                  </motion.div>
+
+                  <motion.div
+                    variants={modalTextVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    custom={0.88}
+                    className="pt-7"
+                  >
+                    <button
+                      onClick={() => handleOpenCoachInquiry(`aula com ${activeTeacher.name}`)}
+                      className="inline-flex items-center gap-2 rounded-xl bg-court-neon hover:bg-white text-dark-bg px-5 py-3 text-xs font-bold uppercase tracking-wider transition-colors"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-current" />
+                      Consultar aulas
+                    </button>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>

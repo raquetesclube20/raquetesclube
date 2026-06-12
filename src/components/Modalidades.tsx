@@ -53,7 +53,7 @@ export default function Modalidades() {
             Nossas <span className="text-gradient-neon font-extrabold">Modalidades Esportivas</span>
           </h2>
           <p className="text-gray-300 text-base md:text-lg">
-            Selecione uma categoria para descobrir mais sobre nossas quadras, quantidade de estruturas exclusivas e agendar sua partida.
+            Selecione uma modalidade para ver onde jogar e seguir para a reserva pelo WhatsApp.
           </p>
         </div>
 
@@ -160,7 +160,7 @@ export default function Modalidades() {
                     {selectedSport.name}
                   </h3>
                   <p className="text-[10px] font-mono tracking-widest text-court-neon uppercase">
-                    Raquetes Clube Americana 2.0
+                    Raquetes Clube
                   </p>
                 </div>
               </div>
@@ -171,15 +171,15 @@ export default function Modalidades() {
                   {selectedSport.longDescription}
                 </p>
 
-                {/* Additional simulated premium indicators instead of fake variables */}
+                {/* Unit details */}
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/5">
                   <div className="p-3.5 rounded-xl bg-white/5 border border-white/5">
-                    <span className="block text-[10px] font-mono text-gray-400 uppercase tracking-wider mb-1">Drenagem & Pisos</span>
-                    <span className="text-xs font-semibold text-white">Tecnologia Antideslizante</span>
+                    <span className="block text-[10px] font-mono text-gray-400 uppercase tracking-wider mb-1">Estrutura</span>
+                    <span className="text-xs font-semibold text-white">Modalidades por unidade</span>
                   </div>
                   <div className="p-3.5 rounded-xl bg-white/5 border border-white/5">
-                    <span className="block text-[10px] font-mono text-gray-400 uppercase tracking-wider mb-1">Equipamentos</span>
-                    <span className="text-xs font-semibold text-white">Aluguel e Venda no Local</span>
+                    <span className="block text-[10px] font-mono text-gray-400 uppercase tracking-wider mb-1">Atendimento</span>
+                    <span className="text-xs font-semibold text-white">Confirmação via WhatsApp</span>
                   </div>
                 </div>
 
@@ -187,11 +187,11 @@ export default function Modalidades() {
                 <div className="space-y-2 pt-2">
                   <div className="flex items-start gap-2.5 text-xs text-gray-300">
                     <CheckCircle className="w-4 h-4 text-court-neon shrink-0 mt-0.5" />
-                    <span>Drenagem ultrarrápida (perfeito para beach tennis/areia após chuvas em Americana)</span>
+                    <span>Estrutura preparada para treinos, aulas e jogos nas unidades do clube</span>
                   </div>
                   <div className="flex items-start gap-2.5 text-xs text-gray-300">
                     <CheckCircle className="w-4 h-4 text-court-neon shrink-0 mt-0.5" />
-                    <span>Iluminação profissional indireta sem sombras nos olhos</span>
+                    <span>Atendimento para aulas, treinos e jogos avulsos</span>
                   </div>
                 </div>
               </div>

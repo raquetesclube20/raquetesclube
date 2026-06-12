@@ -3,10 +3,25 @@ import { Menu, X, Calendar, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import logo from "../../assets/logo.png";
 
+function TennisBallMarker({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`relative inline-block h-4 w-4 shrink-0 rounded-full bg-sand-warm shadow-[0_0_10px_rgba(255,224,82,0.65)] overflow-hidden ${className}`}
+      aria-hidden="true"
+    >
+      <span className="absolute -left-1 top-0 h-4 w-3 rounded-r-full border-r-2 border-dark-bg/45" />
+      <span className="absolute -right-1 top-0 h-4 w-3 rounded-l-full border-l-2 border-dark-bg/45" />
+    </span>
+  );
+}
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const homePath = `${import.meta.env.BASE_URL}`;
+  const currentPhone = window.location.pathname.endsWith("/nova-odessa") ? "5519920127054" : "5519981522647";
+  const bookingHref = `https://wa.me/${currentPhone}?text=Ol%C3%A1!+Gostaria+de+reservar+uma+quadra+no+Raquetes+Clube.`;
 
   const menuItems = [
     { label: "Unidades", href: "#unidades" },
@@ -15,7 +30,6 @@ export default function Header() {
     { label: "O Clube", href: "#experiencia" },
     { label: "Agenda", href: "#agenda" },
     { label: "Rankings", href: "#rankings" },
-    { label: "Galeria", href: "#galeria" },
   ];
 
   useEffect(() => {
@@ -71,8 +85,20 @@ export default function Header() {
         top: elementPosition - offset,
         behavior: "smooth"
       });
+    } else {
+      window.location.href = `${homePath}#${id}`;
     }
     setIsOpen(false);
+  };
+
+  const goHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const isHome = window.location.pathname === homePath || window.location.pathname === homePath.replace(/\/$/, "");
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.location.href = homePath;
+    }
   };
 
   return (
@@ -85,19 +111,16 @@ export default function Header() {
         <div className="flex items-center justify-between">
           
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group" onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}>
-            <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center glow-neon transition-transform duration-300 group-hover:rotate-6 overflow-hidden p-1">
-              <img src={logo} alt="Raquetes Clube" className="w-full h-full object-contain" />
+          <a href={homePath} className="flex items-center gap-3 group" onClick={goHome}>
+            <div className="w-16 h-16 sm:w-[72px] sm:h-[72px] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <img src={logo} alt="Raquetes Clube" className="w-full h-full object-contain drop-shadow-[0_0_16px_rgba(8,174,234,0.35)]" />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-extrabold text-xl tracking-tight text-white group-hover:text-court-neon transition-colors">
                 RAQUETES<span className="text-court-neon">CLUBE</span>
               </span>
               <span className="text-[9px] font-mono tracking-widest text-gray-400 -mt-1 leading-none uppercase">
-                AMERICANA • v2.0
+                AMERICANA & NOVA ODESSA
               </span>
             </div>
           </a>
@@ -106,6 +129,49 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1 bg-white/[0.02] border border-white/5 p-1 rounded-full backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_4px_20px_rgba(0,0,0,0.2)]">
             {menuItems.map((item) => {
               const isActive = activeSection === item.href.slice(1);
+              if (item.label === "Unidades") {
+                return (
+                  <div key={item.label} className="relative group">
+                    <a
+                      href={item.href}
+                      onClick={(e) => scrollToSection(e, item.href.slice(1))}
+                      className={`text-[10px] uppercase tracking-wider font-mono font-bold transition-all duration-300 relative px-3 py-1.5 rounded-full cursor-pointer select-none block ${
+                        isActive 
+                          ? "text-dark-bg" 
+                          : "text-gray-400 hover:text-white"
+                      }`}
+                    >
+                      <span className="relative z-10 flex items-center gap-1.5 transition-colors duration-300">
+                        {isActive && <TennisBallMarker />}
+                        {item.label}
+                      </span>
+                      {isActive && (
+                        <motion.div
+                          layoutId="activeNavBubble"
+                          className="absolute inset-0 bg-gradient-to-r from-court-neon to-sand-warm rounded-full shadow-[0_0_15px_rgba(8,174,234,0.45)] border border-court-neon/45"
+                          transition={{ type: "spring", stiffness: 380, damping: 28 }}
+                        />
+                      )}
+                    </a>
+                    <div className="absolute left-1/2 top-full pt-3 -translate-x-1/2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200">
+                      <div className="w-44 rounded-2xl bg-panel-dark/95 border border-white/10 shadow-2xl backdrop-blur-md p-2">
+                        <a
+                          href={`${homePath}americana`}
+                          className="block rounded-xl px-3 py-2 text-xs font-bold text-gray-300 hover:bg-court-neon/10 hover:text-court-neon transition-colors"
+                        >
+                          Americana
+                        </a>
+                        <a
+                          href={`${homePath}nova-odessa`}
+                          className="block rounded-xl px-3 py-2 text-xs font-bold text-gray-300 hover:bg-court-neon/10 hover:text-court-neon transition-colors"
+                        >
+                          Nova Odessa
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
               return (
                 <a
                   key={item.label}
@@ -117,7 +183,10 @@ export default function Header() {
                       : "text-gray-400 hover:text-white"
                   }`}
                 >
-                  <span className="relative z-10 transition-colors duration-300">{item.label}</span>
+                  <span className="relative z-10 flex items-center gap-1.5 transition-colors duration-300">
+                    {isActive && <TennisBallMarker />}
+                    {item.label}
+                  </span>
                   {isActive && (
                     <motion.div
                       layoutId="activeNavBubble"
@@ -142,7 +211,7 @@ export default function Header() {
               Ver Agenda
             </a>
             <a
-              href="https://wa.me/5519999999999?text=Ol%C3%A1!+Gostaria+de+reservar+uma+quadra+no+Raquetes+Clube."
+              href={bookingHref}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-dark-bg bg-court-neon hover:bg-white border border-court-neon py-2 px-5 rounded-xl transition-all duration-300 shadow-md font-sans"
@@ -183,22 +252,41 @@ export default function Header() {
                 {menuItems.map((item, idx) => {
                   const isActive = activeSection === item.href.slice(1);
                   return (
-                    <motion.a
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: idx * 0.05 }}
-                      key={item.label}
-                      href={item.href}
-                      onClick={(e) => scrollToSection(e, item.href.slice(1))}
-                      className={`text-base font-bold transition-all py-2.5 px-3 rounded-xl flex items-center justify-between relative overflow-hidden ${
-                        isActive 
-                          ? "text-court-neon bg-gradient-to-r from-court-neon/10 to-transparent border-l-2 border-court-neon pl-4 shadow-[inset_1px_0_0_rgba(8,174,234,0.1)]" 
-                          : "text-gray-300 hover:text-white hover:bg-white/[0.02] border-l-2 border-transparent pl-2 hover:pl-4"
-                      }`}
-                    >
-                      <span>{item.label}</span>
-                      {isActive && <div className="w-1.5 h-1.5 rounded-full bg-court-neon shadow-[0_0_6px_#08aeea]" />}
-                    </motion.a>
+                    <React.Fragment key={item.label}>
+                      <motion.a
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ delay: idx * 0.05 }}
+                        href={item.href}
+                        onClick={(e) => scrollToSection(e, item.href.slice(1))}
+                        className={`text-base font-bold transition-all py-2.5 px-3 rounded-xl flex items-center justify-between relative overflow-hidden ${
+                          isActive 
+                            ? "text-court-neon bg-gradient-to-r from-court-neon/10 to-transparent border-l-2 border-court-neon pl-4 shadow-[inset_1px_0_0_rgba(8,174,234,0.1)]" 
+                            : "text-gray-300 hover:text-white hover:bg-white/[0.02] border-l-2 border-transparent pl-2 hover:pl-4"
+                        }`}
+                      >
+                        <span>{item.label}</span>
+                        {isActive && <TennisBallMarker className="h-4 w-4" />}
+                      </motion.a>
+                      {item.label === "Unidades" && (
+                        <div className="grid grid-cols-2 gap-2 pl-4">
+                          <a
+                            href={`${homePath}americana`}
+                            onClick={() => setIsOpen(false)}
+                            className="rounded-xl bg-white/5 border border-white/5 px-3 py-2 text-xs font-bold text-gray-300"
+                          >
+                            Americana
+                          </a>
+                          <a
+                            href={`${homePath}nova-odessa`}
+                            onClick={() => setIsOpen(false)}
+                            className="rounded-xl bg-white/5 border border-white/5 px-3 py-2 text-xs font-bold text-gray-300"
+                          >
+                            Nova Odessa
+                          </a>
+                        </div>
+                      )}
+                    </React.Fragment>
                   );
                 })}
               </nav>
@@ -213,7 +301,7 @@ export default function Header() {
                   Ver Agenda Online
                 </a>
                 <a
-                  href="https://wa.me/5519999999999?text=Ol%C3%A1!+Gostaria+de+reservar+uma+quadra+no+Raquetes+Clube."
+                  href={bookingHref}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center justify-center gap-2 w-full text-center py-3 px-4 rounded-xl bg-court-neon text-dark-bg hover:bg-white transition-colors duration-300 font-semibold text-sm uppercase tracking-wider shadow-lg"

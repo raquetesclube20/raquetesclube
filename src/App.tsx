@@ -7,18 +7,42 @@ import Experiencia from "./components/Experiencia";
 import AgendaReservas from "./components/AgendaReservas";
 import RankingTorneios from "./components/RankingTorneios";
 import AulasProfessores from "./components/AulasProfessores";
-import InstagramFeed from "./components/InstagramFeed";
-import Galeria from "./components/Galeria";
+import InstagramSection from "./components/InstagramSection";
 import Footer from "./components/Footer";
 import QuickContactButton from "./components/QuickContactButton";
+import UnidadePage from "./components/UnidadePage";
 
 export default function App() {
+  const path = window.location.pathname.replace(/\/$/, "");
+
+  if (path.endsWith("/americana")) {
+    return (
+      <div className="min-h-screen bg-dark-bg text-slate-100 flex flex-col relative" id="app-root-frame">
+        <Header />
+        <main className="flex-grow">
+          <UnidadePage unitId="americana" />
+        </main>
+        <QuickContactButton />
+        <Footer />
+      </div>
+    );
+  }
+
+  if (path.endsWith("/nova-odessa")) {
+    return (
+      <div className="min-h-screen bg-dark-bg text-slate-100 flex flex-col relative" id="app-root-frame">
+        <Header />
+        <main className="flex-grow">
+          <UnidadePage unitId="nova-odessa" />
+        </main>
+        <QuickContactButton />
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-dark-bg text-slate-100 flex flex-col relative" id="app-root-frame">
-      {/* Decorative global mesh or lighting dots */}
-      <div className="absolute top-[15%] right-[-10%] w-[40%] h-[40%] bg-gradient-to-tr from-court-neon/5 to-court-emerald/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-[60%] left-[-15%] w-[45%] h-[45%] bg-gradient-to-br from-sand-warm/5 to-clay-orange/5 rounded-full blur-[140px] pointer-events-none" />
-
       {/* Navigation Header bar */}
       <Header />
 
@@ -29,10 +53,9 @@ export default function App() {
         <Modalidades />
         <AulasProfessores />
         <Experiencia />
+        <InstagramSection />
         <AgendaReservas />
         <RankingTorneios />
-        <InstagramFeed />
-        <Galeria />
       </main>
 
       {/* Global Interactive Floating widgets */}

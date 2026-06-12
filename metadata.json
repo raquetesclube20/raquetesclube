@@ -1,6 +1,6 @@
 {
-  "name": "Raquetes Clube 2.0",
-  "description": "Plataforma digital e landing page premium do Raquetes Clube em Americana. Experiência esportiva boutique de alta performance.",
+  "name": "Raquetes Clube",
+  "description": "Site oficial do Raquetes Clube em Americana e Nova Odessa. Esportes de raquete, aulas, reservas e comunidade esportiva.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

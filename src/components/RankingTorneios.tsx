@@ -67,7 +67,7 @@ export default function RankingTorneios() {
             <div className="flex items-start gap-2 max-w-xl">
               <HelpCircle className="w-5 h-5 text-court-neon shrink-0 mt-0.5" />
               <p className="text-[11px] text-gray-400 leading-relaxed font-sans">
-                *Nota:* A tabela acima é atualizada de forma dinâmica e automática. Para participar das ligas e registrar partidas, acesse sua conta no LetzPlay ou dirija-se à secretaria da nossa unidade em Americana-SP.
+                *Nota:* A tabela acima é atualizada de forma dinâmica e automática. Para participar das ligas e registrar partidas, acesse sua conta no LetzPlay ou fale com a secretaria da unidade mais próxima.
               </p>
             </div>
           </div>

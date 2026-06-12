@@ -11,9 +11,9 @@ export default function AgendaReservas() {
   const [playerName, setPlayerName] = useState("");
   const [matchType, setMatchType] = useState("casual-simples"); // casual-simples, casual-duplas, ranking-desafio
   
-  // Format simulated dates based on offset (using 2026-06-10T11:11:16Z context safely)
+  // Format dates from the visitor's current day.
   const days = useMemo(() => {
-    const baseDate = new Date("2026-06-10T11:11:16Z");
+    const baseDate = new Date();
     
     return [0, 1, 2, 3].map((offset) => {
       const d = new Date(baseDate);
@@ -60,7 +60,7 @@ export default function AgendaReservas() {
 
   // Dynamic generate WhatsApp link with precise prefilled Brazilian Portuguese text
   const whatsAppLink = useMemo(() => {
-    const phone = "5519999999999"; // Replace with real or standard club number
+    const phone = "5519981522647";
     if (!activeSlotObject) {
       return `https://wa.me/${phone}?text=Ol%C3%A1!+Gostaria+de+informações+sobre+horários+disponíveis+no+Raquetes+Clube.`;
     }
@@ -105,7 +105,7 @@ export default function AgendaReservas() {
             Agenda & <span className="text-gradient-neon font-extrabold">Reservas Online</span>
           </h2>
           <p className="text-gray-300 text-sm md:text-base">
-            Uma experiência 100% digital. Escolha sua modalidade, selecione o horário livre e conclua o agendamento em segundos via WhatsApp.
+            Escolha a modalidade, confira os horários sugeridos e fale com a secretaria pelo WhatsApp para confirmar a reserva.
           </p>
         </div>
 
@@ -293,7 +293,7 @@ export default function AgendaReservas() {
             <div className="my-6 p-4 rounded-xl bg-black/40 border border-white/5 text-left text-[11px] font-mono leading-relaxed text-gray-400 space-y-1 relative">
               <div className="absolute top-2 right-2 flex items-center gap-1.5 text-[9px] text-court-neon">
                 <Sparkles className="w-3 h-3" />
-                Dinamico
+                Mensagem
               </div>
               <p className="text-white border-b border-white/5 pb-1 text-[10px] uppercase font-bold tracking-wider mb-2">Mensagem gerada:</p>
               

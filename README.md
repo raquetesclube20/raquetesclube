@@ -1,85 +1,141 @@
-# 🎾 Raquetes Clube 2.0 | Esportes de Raquete & Areia
+# Raquetes Clube
 
-> Plataforma web premium para reserva de quadras, rankings ativos de atletas, agenda de treinamentos e comunidade esportiva boutique em Americana e Nova Odessa - SP.
+Site institucional do Raquetes Clube, com landing page, paginas dedicadas por unidade e fluxo de contato/reserva via WhatsApp.
 
----
+Projeto publicado em GitHub Pages no repositorio:
 
-## 🌟 Sobre o Projeto
-O **Raquetes Clube** é o principal centro de esportes de raquete da região de Americana/SP. O aplicativo web 2.0 reflete o posicionamento premium e a experiência boutique do clube, entregando uma interface fluida, moderna e rica em micro-interações para os atletas ativos.
+https://github.com/raquetesclube20/raquetesclube
 
----
+## Visao Geral
 
-## 🚀 Principais Funcionalidades
+O site apresenta o Raquetes Clube nas cidades de Americana e Nova Odessa, com foco em:
 
-### 1. 🧭 Navegação Premium Autocompensada
-- **Menu Flutuante Translúcido**: Cabeçalho moderno com efeito de vidro (`backdrop-blur`) que acompanha a rolagem.
-- **Dock Indicator**: Indicador ativo de seção que desliza como uma cápsula brilhante e colorida por trás do link selecionado usando transição física (`framer-motion`), se adaptando em tempo real conforme o usuário faz o scroll.
-- **Responsividade Pura**: Gaveta mobile adaptada com bordas brilhantes neon e realces discretos para os botões de contato rápido.
+- unidades e enderecos oficiais;
+- modalidades esportivas por unidade;
+- professores, aulas e planos;
+- agenda e reserva de quadras;
+- rankings e torneios;
+- feed visual do Instagram;
+- chamadas diretas para WhatsApp.
 
-### 2. 🌴 Carrossel de Unidades Integrado (AM & NO)
-- **Localização Rápida**: Slide de transição física de alto nível para alternar entre a **Unidade 1 - Americana** (Sede Principal de Saibro, Squash e Raquetinha) e a **Unidade 2 - Nova Odessa** (Eco Arena de Beach Tennis e Areia).
-- **Dados Oficiais e Contatos**: Acesso rápido a links do Google Maps (Rotas GPS) e canais do WhatsApp direto para a recepção de cada sede.
-- **Mídia Integrada**: Carregamento assíncrono das imagens oficiais de cada uma das sedes.
+## Rotas
 
-### 3. 🥎 Esportes e Academia de Alto Rendimento
-- **Grade de Modalidades**: Informações detalhadas sobre a estrutura de quadras disponíveis para Tênis de Saibro, Beach Tennis, Squash, Raquetinha e Vôlei de Areia.
-- **Professores e Grade Técnica**: Conheça o currículo dos Diretores Técnicos Rogério Kawakami e Luciano Santos através de modais interativos e encontre o plano perfeito de evolução técnica (Iniciação ao Avançado).
+- `/`: landing page principal.
+- `/americana`: pagina dedicada da unidade Americana.
+- `/nova-odessa`: pagina dedicada da unidade Nova Odessa.
 
-### 4. 📅 Ligas, Rankings e Redes Sociais
-- **Reserva de Quadras**: Integração de agenda online com simulação de horários disponíveis em tempo real.
-- **Rankings Atualizados**: Tabelas de classificação das categorias masculinas, mistas e elite do clube.
-- **Mural do Instagram**: Grade estilo Bento dos posts mais recentes e novidades das arenas.
+As paginas dedicadas foram criadas para melhorar a experiencia por cidade e preparar o site para SEO local.
 
----
+## Unidades
 
-## 🛠️ Tecnologias Utilizadas
+### Americana
 
-O ecossistema de desenvolvimento foi estruturado com as tecnologias mais recentes e de alta performance:
+- Endereco: Av. de Cillo, 4451 - Pq Novo Mundo, Americana - SP
+- WhatsApp: (19) 98152-2647
+- Modalidades: tenis, raquetinha, squash, beach tennis e quadra de areia
+- Rota local: `/americana`
 
-- **Core**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
-- **Bundler & Dev Server**: [Vite 6](https://vite.dev/) (Compilação instantânea com HMR)
-- **Estilização**: [Tailwind CSS v4](https://tailwindcss.com/) (Sistema de temas CSS puro, sem necessidade de arquivos de configuração complexos)
-- **Animações**: [Motion (Framer Motion v12)](https://motion.dev/) (Transições compartilhadas de layout e controle de carrossel)
-- **Ícones**: [Lucide React](https://lucide.dev/) (Biblioteca otimizada com suporte a Tree Shaking)
+### Nova Odessa
 
----
+- Endereco: Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa - SP
+- WhatsApp: (19) 92012-7054
+- Modalidades: tenis e raquetinha
+- Rota local: `/nova-odessa`
 
-## 💻 Como Executar Localmente
+## Principais Recursos
 
-Siga o passo a passo abaixo para rodar o projeto na sua máquina:
+- Identidade visual alinhada a paleta da logo do Raquetes Clube.
+- Header fixo com indicador de secao ativa e bolinha de tenis no item selecionado.
+- Submenu de unidades no desktop e links dedicados no mobile.
+- Hero com video, chamadas principais e acesso rapido a agenda.
+- Carrossel de unidades com videos primeiro e fotos depois.
+- Videos de fundo nas paginas dedicadas das unidades.
+- Cards de professores com modal visual, foto solta e conteudo responsivo.
+- Modal mobile dos professores com botao de fechar sempre visivel.
+- Feed visual do Instagram com hover exibindo legenda, curtidas e comentarios.
+- Botao flutuante de WhatsApp com selecao de unidade e fechamento ao clicar fora.
+- Botao flutuante do Instagram.
+- Remocao de referencias a prototipo/versao "2.0".
+- Ajustes para evitar scroll horizontal na landing page.
 
-### **Pré-requisitos:**
-Instale o **Node.js** (versão 20 ou superior recomendado).
+## Assets Importantes
 
-1. **Clonar e acessar o repositório:**
-   ```bash
-   git clone https://github.com/raquetesclube20/raquetesclube.git
-   cd raquetesclube
-   ```
+Principais pastas de midia:
 
-2. **Instalar as dependências:**
-   ```bash
-   npm install
-   ```
+- `assets/americana`: fotos da unidade Americana.
+- `assets/americana/vids`: videos da unidade Americana.
+- `assets/nova-odessa`: fotos da unidade Nova Odessa.
+- `assets/nova-odessa/vids`: videos da unidade Nova Odessa.
+- `assets/instagram`: imagens usadas no bloco do Instagram.
+- `assets/animations`: modelos 3D adicionados para testes futuros. Eles nao estao ativos no site neste momento.
 
-3. **Rodar o ambiente de desenvolvimento:**
-   ```bash
-   npm run dev
-   ```
-   *O projeto iniciará localmente e estará disponível no endereço: `http://localhost:3000`*
+Observacao: alguns videos, principalmente da unidade Americana, sao grandes. Antes de uma publicacao mais madura em producao, recomenda-se comprimir os arquivos para melhorar carregamento em celulares.
 
-4. **Executar validação de código (Linter):**
-   ```bash
-   npm run lint
-   ```
+## Stack
 
----
+- React 19
+- TypeScript
+- Vite 6
+- Tailwind CSS v4
+- Motion
+- Lucide React
 
-## 📦 Build e Publicação (GitHub Pages)
+## Comandos
 
-O deploy do site está automatizado através do **GitHub Actions**. O arquivo de workflow `.github/workflows/deploy.yml` executa as seguintes tarefas a cada novo commit enviado para a branch `main`:
-1. Instalação limpa de dependências com `npm ci`.
-2. Compilação estática dos ativos de produção usando `npm run build`.
-3. Deploy dos arquivos da pasta `./dist` diretamente para o GitHub Pages.
+Instalar dependencias:
 
-> 💡 **Nota Importante para Manutenção:** Se você mudar o nome do repositório no GitHub, lembre-se de atualizar a propriedade `base` dentro do arquivo `vite.config.ts` para refletir o novo subdiretório do repositório, garantindo que os caminhos dos arquivos CSS/JS sejam gerados corretamente.
+```bash
+npm install
+```
+
+Rodar localmente:
+
+```bash
+npm run dev
+```
+
+Servidor local padrao:
+
+```text
+http://localhost:3000
+```
+
+Validar TypeScript:
+
+```bash
+npm run lint
+```
+
+Gerar build de producao:
+
+```bash
+npm run build
+```
+
+## Deploy
+
+O deploy e feito pelo GitHub Pages a partir do repositorio `raquetesclube20/raquetesclube`.
+
+Fluxo recomendado:
+
+1. Rodar `npm run lint`.
+2. Rodar `npm run build`.
+3. Fazer commit na branch `main`.
+4. Fazer push para `origin/main`.
+5. Aguardar o GitHub Pages/GitHub Actions publicar a nova versao.
+
+## Manutencao
+
+Ao alterar midias:
+
+- preferir nomes de arquivo sem caracteres especiais;
+- comprimir videos antes de subir;
+- revisar se os imports continuam apontando para os arquivos corretos;
+- validar desktop e mobile antes do deploy.
+
+Ao alterar dados das unidades:
+
+- revisar textos da home;
+- revisar paginas `/americana` e `/nova-odessa`;
+- revisar links de WhatsApp;
+- revisar links de rota no Google Maps.

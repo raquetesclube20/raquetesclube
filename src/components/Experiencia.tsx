@@ -12,7 +12,7 @@ export default function Experiencia() {
     {
       icon: BookOpen,
       title: "Professores Especializados",
-      desc: "Metodologia estruturada que atende do iniciante absoluto ao competidor de torneios de alta performance. Evolução técnica contínua.",
+      desc: "Aulas para quem está começando e para quem já joga torneios. Evolução técnica com acompanhamento dos professores.",
       badge: "Metodologia"
     },
     {
@@ -24,7 +24,7 @@ export default function Experiencia() {
     {
       icon: Sparkles,
       title: "Eventos & Torneios",
-      desc: "Torneios internos animados, clínicas técnicas com convidados de destaque nacional, happy hours comunitários e um bar gourmet completo.",
+      desc: "Torneios internos, clínicas técnicas, encontros entre alunos e momentos de convivência depois dos jogos.",
       badge: "Networking"
     },
     {
@@ -36,7 +36,7 @@ export default function Experiencia() {
     {
       icon: Smile,
       title: "Conexões Reais",
-      desc: "Crie novas amizades no melhor clube boutique de Americana. Desligue das telas e entre em movimento com parceiros que amam o esporte.",
+      desc: "Crie novas amizades no Raquetes Clube em Americana e Nova Odessa. Desligue das telas e entre em movimento com parceiros que amam o esporte.",
       badge: "Comunidade"
     }
   ];
@@ -62,7 +62,7 @@ export default function Experiencia() {
           </div>
           <div className="lg:col-span-5 text-left lg:border-l lg:border-white/10 lg:pl-8 pb-1">
             <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-              No Raquetes Clube 2.0, acreditamos no esporte de raquete e areia como um poderoso integrador social. Oferecemos infraestrutura de ponta, em uma atmosfera boutique que prioriza o bem-estar físico, a saúde mental e as conexões humanas autênticas.
+              No Raquetes Clube, o esporte é um ponto de encontro. As unidades foram pensadas para aulas, jogos, torneios e convivência entre alunos, atletas e famílias.
             </p>
           </div>
         </div>
@@ -108,9 +108,9 @@ export default function Experiencia() {
                 <div className="mt-4 pt-3 border-t border-dashed border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-400">
                   <span className="flex items-center gap-1.5 text-gray-500">
                     <ShieldCheck className="w-3.5 h-3.5 text-court-emerald" />
-                    Raquetes v2.0
+                    Raquetes Clube
                   </span>
-                  <span className="text-gray-600">Americana-SP</span>
+                  <span className="text-gray-600">Americana e Nova Odessa-SP</span>
                 </div>
 
               </motion.div>
