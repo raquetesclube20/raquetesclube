@@ -4,8 +4,8 @@ export const MODALITIES: Modality[] = [
   {
     id: "tenis",
     name: "Tênis",
-    description: "Tradição, tática e precisão para jogos e aulas de tênis.",
-    longDescription: "Nossas quadras de saibro oferecem a drenagem ideal e são impecavelmente mantidas para garantir o salto perfeito da bola. Venha disputar partidas casuais, aprimorar seu forehand ou competir em nossos rankings integrados.",
+    description: "Quadras de saibro para aulas, jogos, locações e treinos com menor impacto nas articulações.",
+    longDescription: "O tênis no saibro favorece trocas mais longas, controle de bola e evolução técnica com menor impacto para as articulações. No Raquetes Clube, a modalidade atende desde quem está começando até jogadores que buscam treino, competição e locação de quadra.",
     icon: "Activity",
     color: "from-squash-cyan to-court-emerald",
     courtCount: 4
@@ -13,8 +13,8 @@ export const MODALITIES: Modality[] = [
   {
     id: "beach-tennis",
     name: "Beach Tennis",
-    description: "Modalidade na areia para jogos rápidos, aulas e grupos.",
-    longDescription: "Esporte que mais cresce no Brasil, o beach tennis une simplicidade, queima calórica e um ambiente relaxado de amizade. Nossas quadras têm areia tratada antitérmica com iluminação LED de última geração.",
+    description: "Esporte na areia que une diversão, atividade física e integração social.",
+    longDescription: "O beach tennis combina diversão, condicionamento físico e interação social em um ambiente descontraído. Praticado na areia, fortalece pernas, abdômen e core, melhora equilíbrio e coordenação motora e tem impacto reduzido nas articulações.",
     icon: "Sun",
     color: "from-sand-warm to-clay-orange",
     courtCount: 6
@@ -22,8 +22,8 @@ export const MODALITIES: Modality[] = [
   {
     id: "squash",
     name: "Squash",
-    description: "Dinâmico, estratégico e de alto gasto calórico em arenas climatizadas.",
-    longDescription: "Acelere suas decisões, treine seus reflexos e divirta-se em quadras fechadas com tecnologia avançada de amortecimento no piso. Perfeita para quem busca performance e eficiência no treino.",
+    description: "Modalidade indoor intensa para condicionamento, reflexos e velocidade de reação.",
+    longDescription: "O squash é considerado um dos esportes que mais queimam calorias por hora de prática. Dinâmico e intenso, melhora condicionamento físico, capacidade cardiovascular, reflexos e velocidade de reação, com a vantagem de ser praticado em ambiente fechado.",
     icon: "Zap",
     color: "from-court-neon to-court-emerald",
     courtCount: 2
@@ -31,8 +31,8 @@ export const MODALITIES: Modality[] = [
   {
     id: "raquetinha",
     name: "Raquetinha",
-    description: "O esporte febre tradicional de Americana. Trocas rápidas e pura adrenalina.",
-    longDescription: "Mais leve, com raquetes mais curtas e bolas de menor pressão, a raquetinha é uma modalidade ágil e tradicional na região. Uma boa opção para jogos rápidos e treinos em grupo.",
+    description: "Modalidade tradicional da região, disputada em duplas e com aprendizado acessível.",
+    longDescription: "Tradicional na região metropolitana de Campinas e na Baixada Santista, a raquetinha é disputada em duplas nos moldes do tênis. A raquete e a dinâmica do jogo tornam a modalidade mais acessível, favorecendo jogabilidade, integração e aprendizado rápido.",
     icon: "Target",
     color: "from-court-emerald to-sand-warm",
     courtCount: 3
@@ -40,8 +40,8 @@ export const MODALITIES: Modality[] = [
   {
     id: "quadra-areia",
     name: "Quadras de Areia",
-    description: "Multiesportes na areia especial para vôlei de praia, futevôlei e treinos funcionais.",
-    longDescription: "Para além do beach tennis, nossa estrutura de areia apoia treinos esportivos focados em mobilidade e força, vôlei de praia e futevôlei com grupos amadores e alta energia de finais de semana.",
+    description: "Espaço versátil para jogos, treinos, eventos e encontros esportivos na areia.",
+    longDescription: "As quadras de areia ampliam a experiência do clube para jogos recreativos, treinos funcionais, encontros entre amigos, confraternizações e eventos esportivos. É uma estrutura preparada para receber grupos e fortalecer a convivência em torno do esporte.",
     icon: "Flame",
     color: "from-sand-warm to-court-neon",
     courtCount: 2
@@ -49,8 +49,8 @@ export const MODALITIES: Modality[] = [
   {
     id: "aulas-treinos",
     name: "Aulas & Treinos",
-    description: "Aprenda com metodologia própria de professores formados e experientes.",
-    longDescription: "Acelere sua técnica! Oferecemos aulas individuais ou em turmas reduzidas para todos os níveis, desde quem nunca segurou uma raquete até atletas que querem refinar detalhes táticos para torneios.",
+    description: "Aulas particulares, duplas, grupos, escolinha e equipe de competição.",
+    longDescription: "Perfeito para quem deseja aprender, evoluir ou competir. A metodologia contempla aulas particulares com acompanhamento individualizado, treinos em duplas, aulas em grupo, escolinha infantil e preparação para equipe de competição.",
     icon: "Award",
     color: "from-squash-cyan to-sand-warm",
     courtCount: 0
@@ -60,42 +60,42 @@ export const MODALITIES: Modality[] = [
 export const COACHING_PLANS: CoachingPlan[] = [
   {
     id: "iniciacao",
-    level: "Aulas de Iniciação",
-    description: "Perfeita para quem quer aprender as regras do jogo, empunhadura correta, posicionamento de quadra e os primeiros golpes essenciais de forma descontraída e didática.",
+    level: "Aulas Particulares",
+    description: "Acompanhamento individualizado para quem quer aprender, corrigir fundamentos ou evoluir com atenção total do professor.",
     benefits: [
-      "Fundamentos mecânicos de golpes",
-      "Terminologia e regras essenciais",
-      "Uso de raquetes de teste incluído",
-      "Grupos de até 4 pessoas para facilitar a socialização"
+      "Plano de evolução de acordo com o nível do aluno",
+      "Correção técnica e leitura de jogo",
+      "Atendimento para iniciantes, praticantes e atletas",
+      "Disponível para diferentes modalidades do clube"
     ],
-    duration: "1h por aula - Planos de 1 ou 2x por semana",
-    priceEstimate: "A partir de R$ 160/mês"
+    duration: "Horários sob consulta",
+    priceEstimate: "Consultar pacote"
   },
   {
     id: "intermediario",
-    level: "Aprimoramento Técnico",
-    description: "Para jogadores que já trocam bola e buscam mais consistência, direção, saque e leitura de jogo.",
+    level: "Duplas e Grupos",
+    description: "Treinos em duplas e aulas em grupo para desenvolvimento técnico, tático e integração entre alunos.",
     benefits: [
-      "Estratégia de jogo (Simples e Duplas)",
-      "Transição de defesa para ataque",
-      "Filmagem técnica e análise de postura",
-      "Convites automáticos para ligas do clube"
+      "Turmas com foco em evolução e convivência",
+      "Desenvolvimento de ritmo, posicionamento e tomada de decisão",
+      "Ambiente acolhedor para diferentes idades",
+      "Integração entre alunos e praticantes"
     ],
-    duration: "1h por aula - Planos de 1, 2 ou 3x por semana",
-    priceEstimate: "A partir de R$ 220/mês"
+    duration: "Turmas sob consulta",
+    priceEstimate: "Consultar pacote"
   },
   {
     id: "alta-performance",
-    level: "Alta Performance & Competição",
-    description: "Treinos focados em preparação para torneios, rankings internos, tática de jogo e consistência em quadra.",
+    level: "Escolinha e Competição",
+    description: "Formação esportiva para crianças e preparação de jogadores que desejam competir com mais consistência.",
     benefits: [
-      "Situações de jogo e match play",
-      "Ajustes táticos personalizados",
-      "Suporte físico focado em deslocamento e flexibilidade",
-      "Acompanhamento em chaves de torneios"
+      "Escolinha infantil para desenvolvimento motor",
+      "Equipe de competição e treinos orientados",
+      "Preparação para rankings, desafios e torneios",
+      "Professores qualificados e metodologia estruturada"
     ],
-    duration: "1h15 por aula - Individuais ou Duplas de Performance",
-    priceEstimate: "Sob consulta acadêmica"
+    duration: "Agenda sob consulta",
+    priceEstimate: "Consultar pacote"
   }
 ];
 

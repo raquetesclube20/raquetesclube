@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
-import { Trophy, HelpCircle, ArrowUpRight } from "lucide-react";
+import { Trophy, HelpCircle, ArrowUpRight, CalendarDays, ImagePlus } from "lucide-react";
 
 export default function RankingTorneios() {
+  const tournamentBannerUrl = `${import.meta.env.BASE_URL}torneios/proximo-torneio.png`;
+
   return (
     <section className="relative py-20 bg-dark-bg/95 border-b border-white/5" id="rankings">
       {/* Background neon dots */}
@@ -12,14 +14,68 @@ export default function RankingTorneios() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="text-xs font-mono tracking-[0.3em] text-court-neon uppercase block mb-3">
-            • ARENA COMPETITIVA •
+            • TORNEIOS & RANKINGS •
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white mb-6 leading-tight">
-            Rankings & <span className="text-gradient-neon font-extrabold">Evolução de Jogo</span>
+            Competições e <span className="text-gradient-neon font-extrabold">Evolução de Jogo</span>
           </h2>
           <p className="text-gray-300 text-sm md:text-base">
-            Acompanhe sua posição, chaves e resultados em tempo real. Nosso ranking é gerido oficialmente pela plataforma LetzPlay.
+            Acompanhe rankings, torneios abertos, chaves e resultados oficiais do Raquetes Clube pela plataforma LetzPlay.
           </p>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-6 max-w-6xl mx-auto mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="lg:col-span-7 bg-panel-dark/40 border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
+          >
+            <div className="relative aspect-[20/7] bg-black/40">
+              <img
+                src={tournamentBannerUrl}
+                alt="Banner do próximo torneio do Raquetes Clube"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/75 via-transparent to-transparent" />
+              <div className="absolute left-5 bottom-5 right-5">
+                <span className="inline-flex items-center gap-2 rounded-full bg-black/50 border border-white/10 px-3 py-1 text-[10px] font-mono uppercase tracking-widest text-court-neon backdrop-blur-md">
+                  <ImagePlus className="w-3.5 h-3.5" />
+                  Banner editável
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="lg:col-span-5 bg-gradient-to-b from-panel-dark to-dark-bg border border-white/10 rounded-3xl p-6 flex flex-col justify-between"
+          >
+            <div>
+              <div className="w-11 h-11 rounded-2xl bg-court-neon/15 text-court-neon flex items-center justify-center mb-5">
+                <CalendarDays className="w-5 h-5" />
+              </div>
+              <span className="text-[10px] font-mono text-court-neon uppercase tracking-widest">Próximos eventos</span>
+              <h3 className="font-display font-bold text-2xl text-white mt-2">Torneios abertos</h3>
+              <p className="text-sm text-gray-400 leading-relaxed mt-3">
+                Consulte inscrições, categorias e chaves dos torneios oficiais do clube diretamente na LetzPlay.
+              </p>
+            </div>
+
+            <a
+              href="https://letzplay.me/raquetes-clube/tournaments?filter=open"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-court-neon hover:bg-white text-dark-bg px-5 py-3 text-xs font-bold uppercase tracking-wider transition-colors"
+            >
+              Ver torneios
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </motion.div>
         </div>
 
         {/* Main Ranking Card with Embed */}

@@ -6,8 +6,8 @@ export default function Hero() {
   const floatingCards = [
     {
       icon: Calendar,
-      title: "Agenda Online",
-      desc: "Reserve quadras em tempo real via celular.",
+      title: "Reservas pelo WhatsApp",
+      desc: "Fale com a secretaria e confirme sua quadra.",
       color: "border-court-neon/20 hover:border-court-neon/50 text-court-neon bg-court-neon/5",
       delay: 0.1
     },
@@ -225,7 +225,7 @@ export default function Hero() {
                   transition={{ duration: 0.4, delay: card.delay }}
                   onClick={() => {
                     const scrolls: { [key: string]: string } = {
-                      "Agenda Online": "agenda",
+                      "Reservas pelo WhatsApp": "agenda",
                       "Rankings Ativos": "rankings",
                       "Aulas para todos": "aulas",
                       "Torneios e Club": "experiencia"

@@ -55,7 +55,7 @@ export default function UnidadesCarrossel() {
       address: "Av. de Cillo, 4451 - Pq Novo Mundo, Americana - SP",
       phone: "(19) 98152-2647",
       phoneRaw: "5519981522647",
-      description: "Nossa unidade em Americana-SP reúne tênis, raquetinha, squash, beach tennis e quadra de areia em uma estrutura completa para treinos, aulas, partidas e convivência no clube.",
+      description: "Nossa unidade em Americana reúne tênis, raquetinha, squash, beach tennis e quadra de areia em uma estrutura completa para treinos, aulas, partidas e convivência no clube.",
       courts: ["Tênis", "Raquetinha", "Squash", "Beach Tennis", "Quadra de Areia"],
       directionLink: "https://maps.google.com/?q=Av.+de+Cillo,+4451+-+Pq+Novo+Mundo,+Americana+-+SP",
       pagePath: `${import.meta.env.BASE_URL}americana`,
@@ -70,7 +70,7 @@ export default function UnidadesCarrossel() {
       address: "Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa - SP",
       phone: "(19) 92012-7054",
       phoneRaw: "5519920127054",
-      description: "Nossa unidade em Nova Odessa-SP atende jogadores de tênis e raquetinha com estrutura objetiva, acolhedora e preparada para partidas, treinos e aulas.",
+      description: "Nossa unidade em Nova Odessa atende jogadores de tênis e raquetinha com estrutura objetiva, acolhedora e preparada para partidas, treinos e aulas.",
       courts: ["Tênis", "Raquetinha"],
       directionLink: "https://maps.google.com/?q=Av.+Cinco,+227+-+Bosque+dos+Eucaliptos,+Nova+Odessa+-+SP",
       pagePath: `${import.meta.env.BASE_URL}nova-odessa`,
@@ -258,7 +258,7 @@ export default function UnidadesCarrossel() {
                   <div className="absolute top-6 left-6 px-4 py-2 bg-black/60 backdrop-blur-md rounded-2xl border border-white/10 flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-court-neon animate-pulse" />
                     <span className="text-court-neon font-mono font-bold text-xs uppercase tracking-widest">
-                      {activeUnit.id === 1 ? "Americana - SP" : "Nova Odessa - SP"}
+                      {activeUnit.id === 1 ? "Americana" : "Nova Odessa"}
                     </span>
                   </div>
 

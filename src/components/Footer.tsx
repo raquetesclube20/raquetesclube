@@ -8,7 +8,7 @@ export default function Footer() {
   const handleScrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -20,7 +20,7 @@ export default function Footer() {
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: elementPosition - offset,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -28,11 +28,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark-bg border-t border-white/5 pt-16 pb-8 relative z-10" id="main-footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Brand Banner Top row */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-white/5 items-start">
-          
-          {/* Logo & Slogan Column */}
           <div className="md:col-span-5 flex flex-col items-start text-left space-y-4">
             <div className="flex items-center gap-3">
               <img src={logo} alt="Raquetes Clube" className="w-12 h-12 object-contain drop-shadow-[0_0_14px_rgba(8,174,234,0.28)]" />
@@ -40,42 +36,44 @@ export default function Footer() {
                 RAQUETES<span className="text-court-neon">CLUBE</span>
               </span>
             </div>
-            
+
             <p className="text-gray-400 text-xs md:text-sm leading-relaxed max-w-sm">
-              Esportes de raquete, aulas e reservas em Americana e Nova Odessa-SP.
+              Esportes de raquete, aulas e reservas em Americana e Nova Odessa.
             </p>
 
             <div className="space-y-3.5 pt-2 text-xs text-gray-300">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-court-neon shrink-0 mt-0.5" />
                 <div>
-                  <a href={`${import.meta.env.BASE_URL}americana`} className="block font-bold text-[10px] uppercase font-mono text-court-neon hover:text-white transition-colors">Unidade Americana</a>
-                  <span className="text-[11px] leading-relaxed">Av. de Cillo, 4451 - Pq Novo Mundo, Americana - SP</span>
+                  <a href={`${import.meta.env.BASE_URL}americana`} className="block font-bold text-[10px] uppercase font-mono text-court-neon hover:text-white transition-colors">
+                    Unidade Americana
+                  </a>
+                  <span className="text-[11px] leading-relaxed">Av. de Cillo, 4451 - Pq Novo Mundo, Americana</span>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-court-emerald shrink-0 mt-0.5" />
                 <div>
-                  <a href={`${import.meta.env.BASE_URL}nova-odessa`} className="block font-bold text-[10px] uppercase font-mono text-court-emerald hover:text-white transition-colors">Unidade Nova Odessa</a>
-                  <span className="text-[11px] leading-relaxed">Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa - SP</span>
+                  <a href={`${import.meta.env.BASE_URL}nova-odessa`} className="block font-bold text-[10px] uppercase font-mono text-court-emerald hover:text-white transition-colors">
+                    Unidade Nova Odessa
+                  </a>
+                  <span className="text-[11px] leading-relaxed">Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Modalidades Column */}
           <div className="md:col-span-2 text-left space-y-4">
             <h4 className="text-xs font-mono tracking-widest text-white uppercase font-bold">Modalidades</h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
-              <li><a href="#modalidades" onClick={(e) => handleScrollToSec(e, "modalidades")} className="hover:text-court-neon transition-colors">Tênis de Saibro</a></li>
+              <li><a href="#modalidades" onClick={(e) => handleScrollToSec(e, "modalidades")} className="hover:text-court-neon transition-colors">Tênis - Quadra de Saibro</a></li>
               <li><a href="#modalidades" onClick={(e) => handleScrollToSec(e, "modalidades")} className="hover:text-court-neon transition-colors">Beach Tennis</a></li>
-              <li><a href="#modalidades" onClick={(e) => handleScrollToSec(e, "modalidades")} className="hover:text-court-neon transition-colors">Squash Climatizado</a></li>
-              <li><a href="#modalidades" onClick={(e) => handleScrollToSec(e, "modalidades")} className="hover:text-court-neon transition-colors">Raquetinha Oficial</a></li>
+              <li><a href="#modalidades" onClick={(e) => handleScrollToSec(e, "modalidades")} className="hover:text-court-neon transition-colors">Squash (modalidade indoor)</a></li>
+              <li><a href="#modalidades" onClick={(e) => handleScrollToSec(e, "modalidades")} className="hover:text-court-neon transition-colors">Raquetinha</a></li>
               <li><a href="#modalidades" onClick={(e) => handleScrollToSec(e, "modalidades")} className="hover:text-court-neon transition-colors">Quadra de Areia</a></li>
             </ul>
           </div>
 
-          {/* Links Rápidos Column */}
           <div className="md:col-span-2 text-left space-y-4">
             <h4 className="text-xs font-mono tracking-widest text-white uppercase font-bold">Navegação</h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
@@ -83,15 +81,14 @@ export default function Footer() {
               <li><a href="#unidades" onClick={(e) => handleScrollToSec(e, "unidades")} className="hover:text-court-neon transition-colors">Nossas Unidades</a></li>
               <li><a href="#agenda" onClick={(e) => handleScrollToSec(e, "agenda")} className="hover:text-court-neon transition-colors">Reserva de Quadras</a></li>
               <li><a href="#aulas" onClick={(e) => handleScrollToSec(e, "aulas")} className="hover:text-court-neon transition-colors">Aulas & Professores</a></li>
-              <li><a href="#rankings" onClick={(e) => handleScrollToSec(e, "rankings")} className="hover:text-court-neon transition-colors">Tabelas de Ranking</a></li>
+              <li><a href="#rankings" onClick={(e) => handleScrollToSec(e, "rankings")} className="hover:text-court-neon transition-colors">Torneios e Ranking</a></li>
             </ul>
           </div>
 
-          {/* Socials column including hours */}
           <div className="md:col-span-3 text-left space-y-4">
             <h4 className="text-xs font-mono tracking-widest text-white uppercase font-bold">Conecte-se</h4>
             <p className="text-xs text-gray-400">Acompanhe fotos diárias, novidades de torneios e avisos de quadras livres.</p>
-            
+
             <div className="flex items-center gap-3">
               <a
                 href="https://instagram.com/raquetesclube"
@@ -128,15 +125,13 @@ export default function Footer() {
               <span className="block">Dom e Feriados: 07h - 18h</span>
             </div>
           </div>
-
         </div>
 
-        {/* Bottom row: copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-mono">
           <div>
-            <span>© {currentYear} Raquetes Clube • Todos os direitos reservados.</span>
+            <span>© {currentYear} Raquetes Clube · Todos os direitos reservados.</span>
           </div>
-          
+
           <div className="flex items-center gap-4">
             <button
               onClick={handleScrollToTop}
@@ -147,7 +142,6 @@ export default function Footer() {
             </button>
           </div>
         </div>
-
       </div>
     </footer>
   );

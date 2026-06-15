@@ -28,8 +28,8 @@ export default function Header() {
     { label: "Modalidades", href: "#modalidades" },
     { label: "Aulas", href: "#aulas" },
     { label: "O Clube", href: "#experiencia" },
-    { label: "Agenda", href: "#agenda" },
-    { label: "Rankings", href: "#rankings" },
+    { label: "Reservas", href: "#agenda" },
+    { label: "Torneios", href: "#rankings" },
   ];
 
   useEffect(() => {
@@ -208,7 +208,7 @@ export default function Header() {
               onClick={(e) => scrollToSection(e, "agenda")}
             >
               <Calendar className="w-4 h-4" />
-              Ver Agenda
+              Reservas
             </a>
             <a
               href={bookingHref}
@@ -298,7 +298,7 @@ export default function Header() {
                   className="flex items-center justify-center gap-2 w-full text-center py-3 px-4 rounded-xl text-court-neon bg-court-neon/10 border border-court-neon/20 font-semibold text-sm uppercase tracking-wider"
                 >
                   <Calendar className="w-4 h-4" />
-                  Ver Agenda Online
+                  Falar sobre reservas
                 </a>
                 <a
                   href={bookingHref}

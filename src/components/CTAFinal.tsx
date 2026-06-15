@@ -62,7 +62,7 @@ export default function CTAFinal() {
               onClick={handleScrollToAgenda}
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider bg-white/5 hover:bg-white/10 border border-white/10 hover:border-court-neon/35 text-white transition-all cursor-pointer"
             >
-              Ver Agenda Online
+              Ver atendimento
               <ArrowUpRight className="w-4 h-4 text-court-neon" />
             </button>
           </div>

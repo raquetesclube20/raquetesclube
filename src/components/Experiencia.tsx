@@ -110,7 +110,7 @@ export default function Experiencia() {
                     <ShieldCheck className="w-3.5 h-3.5 text-court-emerald" />
                     Raquetes Clube
                   </span>
-                  <span className="text-gray-600">Americana e Nova Odessa-SP</span>
+                  <span className="text-gray-600">Americana e Nova Odessa</span>
                 </div>
 
               </motion.div>

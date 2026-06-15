@@ -26,8 +26,8 @@ export default function AulasProfessores() {
     {
       id: "rogerio",
       name: "Rogério Kawakami",
-      title: "Diretor · Professor de Tênis",
-      label: "DIRETOR I",
+      title: "Head Coach",
+      label: "HEAD COACH",
       image: rogerioImg,
       badgeColor: "text-court-neon bg-court-neon/20 border-court-neon/30",
       hoverColor: "hover:border-court-neon/30",
@@ -45,8 +45,8 @@ export default function AulasProfessores() {
     {
       id: "luciano",
       name: "Luciano Santos",
-      title: "Diretor · Professor de Tênis",
-      label: "DIRETOR II",
+      title: "Senior Coach",
+      label: "SENIOR COACH",
       image: lucianoImg,
       badgeColor: "text-court-emerald bg-court-emerald/20 border-court-emerald/30",
       hoverColor: "hover:border-court-emerald/30",
@@ -73,7 +73,7 @@ export default function AulasProfessores() {
     {
       title: "Clínicas & Aulas em Grupo",
       desc: "Aulas em grupo para treinar fundamentos, ritmo de jogo e troca de bola com outros alunos.",
-      ctaText: "Ver Agenda de Grupos",
+      ctaText: "Consultar Grupos",
       icon: Smile
     }
   ];
@@ -110,7 +110,7 @@ export default function AulasProfessores() {
             Nossa Academia de <span className="text-gradient-neon font-extrabold">Aulas & Treinos</span>
           </h2>
           <p className="text-gray-300 text-sm md:text-base">
-            Professores credenciados e experientes prontos para impulsionar seu jogo sob qualquer modalidade de raquete ou areia. Encontre a turma perfeita!
+            Perfeito para quem deseja aprender, evoluir ou competir. Metodologia estruturada para todas as idades e níveis de experiência.
           </p>
         </div>
 
@@ -121,10 +121,10 @@ export default function AulasProfessores() {
               • EXPERIÊNCIA E AUTORIDADE •
             </span>
             <h3 className="font-display font-black text-2xl sm:text-3xl text-white mb-4">
-              Nossos Diretores & Professores
+              Nossos Professores
             </h3>
             <p className="text-gray-400 text-xs sm:text-sm">
-              Clique na foto de cada diretor para conhecer sua trajetória profissional, formação e especialidades.
+              Clique na foto de cada professor para conhecer sua trajetória profissional, formação e especialidades.
             </p>
           </div>
 
@@ -180,8 +180,11 @@ export default function AulasProfessores() {
             • NOSSOS PLANOS •
           </span>
           <h3 className="font-display font-black text-2xl sm:text-3xl text-white mb-4">
-            Planos de Aula & Treinamentos
+            Formatos de Aulas & Treinos
           </h3>
+          <p className="text-gray-400 text-xs sm:text-sm">
+            Aulas particulares, duplas, grupos, escolinha e equipe de competição. Os pacotes são definidos pela secretaria conforme modalidade, idade, nível e disponibilidade.
+          </p>
         </div>
 
         {/* Major Grid: Main Progressive Levels */}
@@ -211,7 +214,7 @@ export default function AulasProfessores() {
                 )}
 
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-court-neon mb-2 block">PLANO EVOLUÇÃO</span>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-court-neon mb-2 block">FORMATO DE AULA</span>
                   <h3 className="font-display font-extrabold text-2xl text-white mb-3">{plan.level}</h3>
                   <p className="text-gray-300 text-xs md:text-sm leading-relaxed mb-6 border-b border-white/5 pb-5">
                     {plan.description}
@@ -228,10 +231,10 @@ export default function AulasProfessores() {
                 </div>
 
                 <div className="mt-auto">
-                  {/* Prices & CTAs */}
+                  {/* Consultative CTA */}
                   <div className="bg-black/35 p-4 rounded-2xl border border-white/5 mb-5 flex justify-between items-center text-left">
                     <div>
-                      <span className="block text-[9px] font-mono text-gray-500 uppercase tracking-wider">Pacote Mensal</span>
+                      <span className="block text-[9px] font-mono text-gray-500 uppercase tracking-wider">Atendimento</span>
                       <span className="text-sm font-bold text-white">{plan.priceEstimate || "Sob Consulta"}</span>
                     </div>
                     <span className="text-[9px] font-mono text-gray-400 bg-white/5 py-1 px-2 border border-white/5 rounded">
@@ -248,7 +251,7 @@ export default function AulasProfessores() {
                     }`}
                   >
                     <BookOpen className="w-4 h-4" />
-                    Agendar Aula Experimental
+                    Consultar no WhatsApp
                   </button>
                 </div>
 

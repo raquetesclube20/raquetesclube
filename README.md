@@ -13,8 +13,8 @@ O site apresenta o Raquetes Clube nas cidades de Americana e Nova Odessa, com fo
 - unidades e enderecos oficiais;
 - modalidades esportivas por unidade;
 - professores, aulas e planos;
-- agenda e reserva de quadras;
-- rankings e torneios;
+- reservas e locacoes direcionadas ao WhatsApp;
+- torneios, rankings e competicoes via LetzPlay;
 - feed visual do Instagram;
 - chamadas diretas para WhatsApp.
 
@@ -47,14 +47,17 @@ As paginas dedicadas foram criadas para melhorar a experiencia por cidade e prep
 - Identidade visual alinhada a paleta da logo do Raquetes Clube.
 - Header fixo com indicador de secao ativa e bolinha de tenis no item selecionado.
 - Submenu de unidades no desktop e links dedicados no mobile.
-- Hero com video, chamadas principais e acesso rapido a agenda.
+- Hero com video, chamadas principais e acesso rapido a reservas pelo WhatsApp.
 - Carrossel de unidades com videos primeiro e fotos depois.
 - Videos de fundo nas paginas dedicadas das unidades.
 - Cards de professores com modal visual, foto solta e conteudo responsivo.
+- Titulos comerciais de professores: Head Coach e Senior Coach.
+- Planos de aula sem valores publicados, com atendimento consultivo pelo WhatsApp.
 - Modal mobile dos professores com botao de fechar sempre visivel.
 - Feed visual do Instagram com hover exibindo legenda, curtidas e comentarios.
 - Botao flutuante de WhatsApp com selecao de unidade e fechamento ao clicar fora.
 - Botao flutuante do Instagram.
+- Area de torneios com link para LetzPlay e banner editavel do proximo torneio.
 - Remocao de referencias a prototipo/versao "2.0".
 - Ajustes para evitar scroll horizontal na landing page.
 
@@ -68,6 +71,13 @@ Principais pastas de midia:
 - `assets/nova-odessa/vids`: videos da unidade Nova Odessa.
 - `assets/instagram`: imagens usadas no bloco do Instagram.
 - `assets/animations`: modelos 3D adicionados para testes futuros. Eles nao estao ativos no site neste momento.
+- `public/torneios/proximo-torneio.png`: banner editavel do proximo torneio exibido na secao Torneios & Rankings.
+
+Banner de torneio recomendado:
+
+- Arquivo: `public/torneios/proximo-torneio.png`
+- Dimensao: `1200 x 420 px`
+- Orientacao: substituir mantendo o mesmo nome e formato para nao alterar o codigo.
 
 Observacao: alguns videos, principalmente da unidade Americana, sao grandes. Antes de uma publicacao mais madura em producao, recomenda-se comprimir os arquivos para melhorar carregamento em celulares.
 
