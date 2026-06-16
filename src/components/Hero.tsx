@@ -3,6 +3,8 @@ import { Calendar, Trophy, Users, Shield, ArrowRight, Play } from "lucide-react"
 import tenisHeroVideo from "../../assets/tenis_hero.mp4";
 
 export default function Hero() {
+  const bookingHref = "https://wa.me/5519981522647?text=Ol%C3%A1%2C+Raquetes+Clube!+Gostaria+de+reservar+uma+quadra.";
+
   const floatingCards = [
     {
       icon: Calendar,
@@ -71,7 +73,7 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-court-neon"></span>
               </span>
               <span className="text-[11px] font-mono font-medium tracking-wider text-gray-300 uppercase">
-                Raquetes Clube • Americana e Nova Odessa / SP
+                Raquetes Clube • Americana e Nova Odessa
               </span>
             </motion.div>
 
@@ -82,7 +84,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-[3.35rem] tracking-tight text-white mb-6 leading-[1.08]"
             >
-              O novo ponto de encontro dos <span className="text-gradient-neon font-extrabold">esportes de raquete</span> em Americana e Nova Odessa
+              Tradição e referência no ensino e prática dos <span className="text-gradient-neon font-extrabold">esportes de raquetes</span> em Americana e Nova Odessa
             </motion.h1>
 
             {/* Subheadline */}
@@ -92,7 +94,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.18 }}
               className="text-gray-300 text-lg md:text-xl font-normal leading-relaxed max-w-2xl mb-8"
             >
-              Tênis, beach tennis, squash, raquetinha, aulas, rankings e reservas em duas unidades no interior de São Paulo.
+              Tênis, beach tennis, squash, raquetinha, aulas, rankings e reservas em duas unidades preparadas para receber jogadores de todos os níveis.
             </motion.p>
 
             {/* CTAs */}
@@ -102,14 +104,16 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="w-full flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10"
             >
-              <button
-                onClick={() => handleScrollToSec("agenda")}
+              <a
+                href={bookingHref}
+                target="_blank"
+                rel="noreferrer"
                 className="flex items-center justify-center gap-3 bg-court-neon hover:bg-white text-dark-bg font-bold py-4 px-8 rounded-xl transition-all duration-300 cursor-pointer shadow-lg shadow-court-neon/15 hover:shadow-white/10 group text-base uppercase tracking-wider font-sans"
               >
                 <Calendar className="w-5 h-5" />
                 Reservar uma quadra
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1.5" />
-              </button>
+              </a>
 
               <button
                 onClick={() => handleScrollToSec("modalidades")}

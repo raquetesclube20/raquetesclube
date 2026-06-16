@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { Calendar, Check, MessageCircle, Users, Trophy, Building2, Clock, Sparkles } from "lucide-react";
 
@@ -34,20 +34,25 @@ const REQUEST_TYPES = [
 ];
 
 const UNITS = [
-  { id: "americana", label: "Americana", phone: "5519981522647" },
-  { id: "nova-odessa", label: "Nova Odessa", phone: "5519920127054" },
+  { id: "americana", label: "Americana", phone: "5519981522647", modalities: ["Tênis", "Raquetinha", "Beach Tennis", "Squash", "Quadra de Areia"] },
+  { id: "nova-odessa", label: "Nova Odessa", phone: "5519920127054", modalities: ["Tênis", "Raquetinha"] },
 ];
-
-const MODALITIES = ["Tênis", "Raquetinha", "Beach Tennis", "Squash", "Quadra de Areia"];
 
 export default function AgendaReservas() {
   const [requestType, setRequestType] = useState(REQUEST_TYPES[0].id);
   const [unit, setUnit] = useState(UNITS[0].id);
-  const [modality, setModality] = useState(MODALITIES[0]);
+  const [modality, setModality] = useState(UNITS[0].modalities[0]);
   const [name, setName] = useState("");
 
   const selectedType = REQUEST_TYPES.find((item) => item.id === requestType) || REQUEST_TYPES[0];
   const selectedUnit = UNITS.find((item) => item.id === unit) || UNITS[0];
+  const availableModalities = selectedUnit.modalities;
+
+  useEffect(() => {
+    if (!availableModalities.includes(modality)) {
+      setModality(availableModalities[0]);
+    }
+  }, [availableModalities, modality]);
 
   const whatsAppLink = useMemo(() => {
     const message = [
@@ -166,7 +171,7 @@ export default function AgendaReservas() {
                   onChange={(e) => setModality(e.target.value)}
                   className="w-full bg-panel-dark text-white text-sm font-medium border border-white/10 rounded-xl py-3 px-4 focus:outline-none focus:border-court-neon transition-colors"
                 >
-                  {MODALITIES.map((item) => (
+                  {availableModalities.map((item) => (
                     <option key={item} value={item}>{item}</option>
                   ))}
                 </select>

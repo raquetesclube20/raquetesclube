@@ -2,7 +2,7 @@ import { useState } from "react";
 import { COACHING_PLANS } from "../data";
 import { CoachingPlan } from "../types";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, Calendar, MessageCircle, HelpCircle, Star, Sparkles, Smile, ArrowRight, BookOpen, X } from "lucide-react";
+import { Check, Calendar, MessageCircle, HelpCircle, Star, Sparkles, Smile, ArrowRight, BookOpen, X, Wrench } from "lucide-react";
 import rogerioImg from "../../assets/rogerio.png";
 import lucianoImg from "../../assets/luciano.png";
 
@@ -75,6 +75,12 @@ export default function AulasProfessores() {
       desc: "Aulas em grupo para treinar fundamentos, ritmo de jogo e troca de bola com outros alunos.",
       ctaText: "Consultar Grupos",
       icon: Smile
+    },
+    {
+      title: "Encordoamento de Raquete",
+      desc: "Serviço para jogadores que buscam mais controle, potência, conforto e segurança no jogo.",
+      ctaText: "Consultar Serviço",
+      icon: Wrench
     }
   ];
 
@@ -261,7 +267,7 @@ export default function AulasProfessores() {
         </div>
 
         {/* Specialized and Custom Formats Row (Bento Bottom Grid) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {otherSpecialties.map((spec, idx) => {
             const SpecIcon = spec.icon;
             return (

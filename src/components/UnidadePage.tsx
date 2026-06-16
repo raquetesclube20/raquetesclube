@@ -102,13 +102,18 @@ export default function UnidadePage({ unitId }: UnidadePageProps) {
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              <div className="rounded-2xl bg-panel-dark/60 border border-white/10 p-5">
+              <a
+                href={unit.mapLink}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-2xl bg-panel-dark/60 hover:bg-panel-dark/80 border border-white/10 hover:border-court-neon/25 p-5 transition-colors"
+              >
                 <MapPin className="w-5 h-5 text-court-neon mb-3" />
                 <span className="block text-[10px] font-mono uppercase tracking-widest text-gray-400 mb-1">
                   Endereço
                 </span>
                 <p className="text-sm text-white leading-relaxed">{unit.address}</p>
-              </div>
+              </a>
 
               <div className="rounded-2xl bg-panel-dark/60 border border-white/10 p-5">
                 <MessageCircle className="w-5 h-5 text-court-neon mb-3" />
@@ -159,7 +164,14 @@ export default function UnidadePage({ unitId }: UnidadePageProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/75 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-black/55 border border-white/10 backdrop-blur-md p-4">
                 <p className="text-sm font-bold text-white">{unit.title}</p>
-                <p className="text-xs text-gray-300 mt-1">{unit.address}</p>
+                <a
+                  href={unit.mapLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-xs text-gray-300 hover:text-court-neon transition-colors mt-1 inline-block"
+                >
+                  {unit.address}
+                </a>
               </div>
             </div>
           </div>

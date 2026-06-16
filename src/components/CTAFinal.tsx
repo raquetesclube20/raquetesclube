@@ -69,7 +69,7 @@ export default function CTAFinal() {
 
           {/* Social reassurance tag */}
           <p className="text-[11px] font-mono text-gray-500 mt-8 uppercase tracking-widest leading-none">
-            • Americana e Nova Odessa • SP • Aberto todos os dias das 07h às 22h •
+            • Americana e Nova Odessa • Seg a Sex 05h30 às 22h • Sáb e Domingo 06h às 18h •
           </p>
 
         </motion.div>

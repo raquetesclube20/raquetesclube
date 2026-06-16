@@ -341,13 +341,18 @@ export default function UnidadesCarrossel() {
                     </div>
 
                     {/* Location Card */}
-                    <div className="bg-black/35 p-4 rounded-2xl border border-white/5 mb-6 flex items-start gap-3">
+                    <a
+                      href={activeUnit.directionLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-black/35 hover:bg-black/45 p-4 rounded-2xl border border-white/5 hover:border-court-neon/20 mb-6 flex items-start gap-3 transition-colors"
+                    >
                       <MapPin className="w-5 h-5 text-court-neon shrink-0 mt-0.5" />
                       <div className="space-y-0.5">
                         <span className="text-[9px] font-mono text-gray-500 uppercase block">Endereço Oficial</span>
                         <p className="text-xs text-white leading-relaxed font-sans">{activeUnit.address}</p>
                       </div>
-                    </div>
+                    </a>
                   </div>
 
                   {/* Actions Grid */}

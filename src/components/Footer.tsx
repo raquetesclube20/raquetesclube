@@ -4,6 +4,8 @@ import logo from "../../assets/logo.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const americanaMapLink = "https://maps.google.com/?q=Av.+de+Cillo,+4451+-+Pq+Novo+Mundo,+Americana+-+SP";
+  const novaOdessaMapLink = "https://maps.google.com/?q=Av.+Cinco,+227+-+Bosque+dos+Eucaliptos,+Nova+Odessa+-+SP";
 
   const handleScrollToTop = () => {
     window.scrollTo({
@@ -48,7 +50,14 @@ export default function Footer() {
                   <a href={`${import.meta.env.BASE_URL}americana`} className="block font-bold text-[10px] uppercase font-mono text-court-neon hover:text-white transition-colors">
                     Unidade Americana
                   </a>
-                  <span className="text-[11px] leading-relaxed">Av. de Cillo, 4451 - Pq Novo Mundo, Americana</span>
+                  <a
+                    href={americanaMapLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[11px] leading-relaxed hover:text-court-neon transition-colors"
+                  >
+                    Av. de Cillo, 4451 - Pq Novo Mundo, Americana
+                  </a>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">
@@ -57,7 +66,14 @@ export default function Footer() {
                   <a href={`${import.meta.env.BASE_URL}nova-odessa`} className="block font-bold text-[10px] uppercase font-mono text-court-emerald hover:text-white transition-colors">
                     Unidade Nova Odessa
                   </a>
-                  <span className="text-[11px] leading-relaxed">Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa</span>
+                  <a
+                    href={novaOdessaMapLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[11px] leading-relaxed hover:text-court-emerald transition-colors"
+                  >
+                    Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa
+                  </a>
                 </div>
               </div>
             </div>
@@ -121,8 +137,8 @@ export default function Footer() {
 
             <div className="bg-white/5 p-3 rounded-xl border border-white/5 text-[11px] text-gray-400 font-mono space-y-1">
               <span className="block text-white font-bold text-xs mb-1">Horário de Funcionamento</span>
-              <span className="block">Seg a Sáb: 07h - 22h</span>
-              <span className="block">Dom e Feriados: 07h - 18h</span>
+              <span className="block">Seg a Sex: 05h30 - 22h</span>
+              <span className="block">Sáb e Domingo: 06h - 18h</span>
             </div>
           </div>
         </div>

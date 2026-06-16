@@ -58,6 +58,9 @@ As paginas dedicadas foram criadas para melhorar a experiencia por cidade e prep
 - Botao flutuante de WhatsApp com selecao de unidade e fechamento ao clicar fora.
 - Botao flutuante do Instagram.
 - Area de torneios com link para LetzPlay e banner editavel do proximo torneio.
+- Enderecos clicaveis apontando para Google Maps.
+- Icones das modalidades carregados de `assets/icons`.
+- Horario de funcionamento: seg a sex das 05h30 as 22h; sab e domingo das 06h as 18h.
 - Remocao de referencias a prototipo/versao "2.0".
 - Ajustes para evitar scroll horizontal na landing page.
 

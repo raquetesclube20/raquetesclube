@@ -2,17 +2,33 @@ import React, { useState } from "react";
 import { MODALITIES } from "../data";
 import { Modality } from "../types";
 import { motion, AnimatePresence } from "motion/react";
-import { Activity, Sun, Zap, Target, Flame, Award, ChevronRight, X, Calendar, MapPin, CheckCircle, Info } from "lucide-react";
+import { ChevronRight, X, Calendar, CheckCircle } from "lucide-react";
+import tennisIcon from "../../assets/icons/tennis.png";
+import beachTennisIcon from "../../assets/icons/beach-tennis.png";
+import squashIcon from "../../assets/icons/squash.png";
+import raquetinhaIcon from "../../assets/icons/raquetinha.png";
+import quadrasIcon from "../../assets/icons/quadras.png";
+import aulasTreinosIcon from "../../assets/icons/aulas-treinos.png";
 
-// Map string representation of icons to real React Lucide components safely
-const IconMapping: { [key: string]: React.ComponentType<{ className?: string }> } = {
-  Activity: Activity,
-  Sun: Sun,
-  Zap: Zap,
-  Target: Target,
-  Flame: Flame,
-  Award: Award,
+const IconMapping: { [key: string]: string } = {
+  tennis: tennisIcon,
+  "beach-tennis": beachTennisIcon,
+  squash: squashIcon,
+  raquetinha: raquetinhaIcon,
+  quadras: quadrasIcon,
+  "aulas-treinos": aulasTreinosIcon,
 };
+
+function ModalityIconImage({ icon, alt, className = "" }: { icon: string; alt: string; className?: string }) {
+  return (
+    <img
+      src={IconMapping[icon] || tennisIcon}
+      alt={alt}
+      className={`h-7 w-7 object-contain brightness-0 invert opacity-95 drop-shadow-[0_0_10px_rgba(8,174,234,0.38)] ${className}`}
+      loading="lazy"
+    />
+  );
+}
 
 export default function Modalidades() {
   const [selectedSport, setSelectedSport] = useState<Modality | null>(null);
@@ -60,8 +76,6 @@ export default function Modalidades() {
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {MODALITIES.map((modality, idx) => {
-            const IconComponent = IconMapping[modality.icon] || Activity;
-            
             return (
               <motion.div
                 key={modality.id}
@@ -85,7 +99,7 @@ export default function Modalidades() {
                   {/* Icon + Court Count Badge */}
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-court-neon/10 group-hover:border-court-neon/30 transition-all">
-                      <IconComponent className="w-6 h-6 text-court-neon group-hover:scale-110 transition-transform" />
+                      <ModalityIconImage icon={modality.icon} alt="" className="group-hover:scale-110 transition-transform" />
                     </div>
                     {modality.courtCount > 0 && (
                       <span className="text-[10px] font-mono tracking-wider text-gray-400 bg-white/5 border border-white/5 py-1 px-3 rounded-full">
@@ -151,8 +165,7 @@ export default function Modalidades() {
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-court-neon/10 flex items-center justify-center text-court-neon">
                   {(() => {
-                    const IconComponent = IconMapping[selectedSport.icon] || Activity;
-                    return <IconComponent className="w-6 h-6" />;
+                    return <ModalityIconImage icon={selectedSport.icon} alt="" />;
                   })()}
                 </div>
                 <div>
@@ -204,7 +217,7 @@ export default function Modalidades() {
                   id="book-sport-modal"
                 >
                   <Calendar className="w-4 h-4" />
-                  Ir para reserva de horário
+                  Falar sobre reserva
                 </button>
                 <button
                   onClick={handleCloseDetail}
