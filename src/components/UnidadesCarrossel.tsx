@@ -110,6 +110,12 @@ export default function UnidadesCarrossel() {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + UNIDADES.length) % UNIDADES.length);
   };
 
+  const selectUnit = (idx: number) => {
+    if (idx === currentIndex) return;
+    setDirection(idx > currentIndex ? 1 : -1);
+    setCurrentIndex(idx);
+  };
+
   const nextMedia = () => {
     setMediaIndex((prevIndex) => (prevIndex + 1) % activeUnit.media.length);
   };
@@ -197,11 +203,49 @@ export default function UnidadesCarrossel() {
             • ESTRUTURA E UNIDADES BOUTIQUE •
           </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white mb-5 leading-tight">
-            Nossas <span className="text-gradient-neon font-extrabold">Unidades Clube</span>
+            Nossas <span className="text-gradient-neon font-extrabold">Unidades</span>
           </h2>
           <p className="text-gray-300 text-sm md:text-base">
-            Conheça nossas unidades em Americana e Nova Odessa. Navegue pelo carrossel abaixo e confira localização, modalidades e contatos rápidos.
+            Escolha uma unidade para ver estrutura, modalidades, endereço e contatos rápidos.
           </p>
+        </div>
+
+        <div className="max-w-2xl mx-auto mb-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {UNIDADES.map((unit, idx) => {
+            const isActive = idx === currentIndex;
+            return (
+              <button
+                key={unit.id}
+                onClick={() => selectUnit(idx)}
+                className={`group relative min-h-14 rounded-2xl border px-5 py-4 text-xs sm:text-sm font-black uppercase tracking-wider transition-all overflow-hidden ${
+                  isActive
+                    ? "bg-gradient-to-r from-court-neon to-sand-warm text-dark-bg border-court-neon shadow-[0_0_26px_rgba(8,174,234,0.36)]"
+                    : "bg-panel-dark/55 text-gray-300 border-white/10 hover:border-court-neon/35 hover:text-white hover:bg-panel-dark/80"
+                }`}
+                aria-pressed={isActive}
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2.5">
+                  <span
+                    className={`relative h-4 w-4 rounded-full overflow-hidden shrink-0 transition-opacity ${
+                      isActive ? "bg-sand-warm opacity-100 shadow-[0_0_10px_rgba(255,220,74,0.65)]" : "bg-court-neon/55 opacity-55 group-hover:opacity-100"
+                    }`}
+                    aria-hidden="true"
+                  >
+                    <span className="absolute -left-1 top-0 h-4 w-3 rounded-r-full border-r-2 border-dark-bg/45" />
+                    <span className="absolute -right-1 top-0 h-4 w-3 rounded-l-full border-l-2 border-dark-bg/45" />
+                  </span>
+                  {unit.id === 1 ? "Americana" : "Nova Odessa"}
+                </span>
+                {isActive && (
+                  <motion.span
+                    layoutId="activeUnitSelectorGlow"
+                    className="absolute inset-0 rounded-2xl bg-white/10"
+                    transition={{ type: "spring", stiffness: 360, damping: 30 }}
+                  />
+                )}
+              </button>
+            );
+          })}
         </div>
 
         {/* Carousel Container */}
@@ -410,10 +454,7 @@ export default function UnidadesCarrossel() {
             {UNIDADES.map((_, idx) => (
               <button
                 key={idx}
-                onClick={() => {
-                  setDirection(idx > currentIndex ? 1 : -1);
-                  setCurrentIndex(idx);
-                }}
+                onClick={() => selectUnit(idx)}
                 className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                   currentIndex === idx 
                     ? "w-8 bg-court-neon shadow-[0_0_8px_#08aeea]" 
