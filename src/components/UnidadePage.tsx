@@ -14,7 +14,8 @@ interface UnidadePageProps {
 const units = {
   americana: {
     city: "Americana",
-    title: "Raquetes Clube Americana",
+    title: "Americana",
+    brandTitle: "Raquetes Clube Americana",
     subtitle: "Tênis, raquetinha, squash, beach tennis e quadra de areia",
     address: "Av. de Cillo, 4451 - Pq Novo Mundo, Americana - SP",
     phone: "(19) 98152-2647",
@@ -24,11 +25,12 @@ const units = {
     mapLink: "https://maps.google.com/?q=Av.+de+Cillo,+4451+-+Pq+Novo+Mundo,+Americana+-+SP",
     modalities: ["Tênis", "Raquetinha", "Squash", "Beach Tennis", "Quadra de Areia"],
     description:
-      "A unidade de Americana reúne as principais modalidades do clube em um só endereço, com estrutura para aulas, reservas, jogos casuais e rankings.",
+      "Tênis, raquetinha, squash, beach tennis e quadra de areia em uma estrutura completa para treinos, aulas, partidas e convivência.",
   },
   "nova-odessa": {
     city: "Nova Odessa",
-    title: "Raquetes Clube Nova Odessa",
+    title: "Nova Odessa",
+    brandTitle: "Raquetes Clube Nova Odessa",
     subtitle: "Tênis e raquetinha",
     address: "Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa - SP",
     phone: "(19) 92012-7054",
@@ -38,7 +40,7 @@ const units = {
     mapLink: "https://maps.google.com/?q=Av.+Cinco,+227+-+Bosque+dos+Eucaliptos,+Nova+Odessa+-+SP",
     modalities: ["Tênis", "Raquetinha"],
     description:
-      "A unidade de Nova Odessa atende jogadores de tênis e raquetinha com uma estrutura direta para treinar, jogar e falar com a secretaria da unidade.",
+      "Tênis e raquetinha em um espaço objetivo, acolhedor e preparado para partidas, treinos e aulas.",
   },
 };
 
@@ -47,17 +49,17 @@ export default function UnidadePage({ unitId }: UnidadePageProps) {
   const homePath = import.meta.env.BASE_URL;
 
   useEffect(() => {
-    document.title = `${unit.title} | Endereço, WhatsApp e modalidades`;
+    document.title = `${unit.brandTitle} | Endereço, WhatsApp e modalidades`;
 
     const metaDescription =
       document.querySelector<HTMLMetaElement>('meta[name="description"]') ||
       document.head.appendChild(document.createElement("meta"));
     metaDescription.name = "description";
-    metaDescription.content = `${unit.title}: ${unit.subtitle}. Endereço: ${unit.address}. WhatsApp: ${unit.phone}.`;
+    metaDescription.content = `${unit.brandTitle}: ${unit.subtitle}. Endereço: ${unit.address}. WhatsApp: ${unit.phone}.`;
   }, [unit]);
 
   const whatsAppText = encodeURIComponent(
-    `Olá! Gostaria de falar com a secretaria do ${unit.title}. Vim pelo site e quero informações sobre reservas e aulas.`
+    `Olá! Gostaria de falar com a secretaria do ${unit.brandTitle}. Vim pelo site e quero informações sobre reservas e aulas.`
   );
 
   return (
@@ -91,7 +93,7 @@ export default function UnidadePage({ unitId }: UnidadePageProps) {
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-7 text-left rounded-3xl bg-dark-bg/55 border border-white/10 backdrop-blur-md p-6 sm:p-8 shadow-2xl">
             <span className="text-xs font-mono tracking-[0.25em] text-court-neon uppercase block mb-4">
-              Unidade {unit.city}
+              Raquetes Clube
             </span>
             <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white leading-tight mb-5">
               {unit.title}
@@ -125,7 +127,7 @@ export default function UnidadePage({ unitId }: UnidadePageProps) {
             </div>
 
             <div className="mb-8">
-              <h2 className="font-display font-bold text-xl text-white mb-4">Modalidades da unidade</h2>
+              <h2 className="font-display font-bold text-xl text-white mb-4">Modalidades disponíveis</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {unit.modalities.map((modality) => (
                   <div key={modality} className="flex items-center gap-2 text-sm text-gray-200">
@@ -160,10 +162,10 @@ export default function UnidadePage({ unitId }: UnidadePageProps) {
 
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden border border-white/10 min-h-[320px] lg:min-h-[520px] shadow-2xl">
-              <img src={unit.image} alt={unit.title} className="absolute inset-0 w-full h-full object-cover" />
+              <img src={unit.image} alt={unit.brandTitle} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/75 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-black/55 border border-white/10 backdrop-blur-md p-4">
-                <p className="text-sm font-bold text-white">{unit.title}</p>
+                <p className="text-sm font-bold text-white">Endereço e rota</p>
                 <a
                   href={unit.mapLink}
                   target="_blank"
