@@ -40,27 +40,27 @@ type Unit = {
 
 function buildUnits(): Unit[] {
   const americanaMedia: UnitMedia[] = [
-    { type: "video", src: americanaVideo1, label: "Raquetes Clube Americana" },
+    { type: "video", src: americanaVideo1, label: "Vista aérea Americana" },
     { type: "video", src: americanaVideo2, label: "Torneio em quadra" },
     { type: "image", src: americanaPhoto5, label: "Familia Raquetes" },
     { type: "image", src: americanaPhoto2, label: "Jogos Americana" },
     { type: "image", src: americanaPhoto3, label: "Quadras Americana" },
-    { type: "image", src: americanaPhoto4, label: "Raquetes Clube Americana" },
+    { type: "image", src: americanaPhoto4, label: "Ambiente Americana" },
   ];
 
   const novaOdessaMedia: UnitMedia[] = [
-    { type: "video", src: novaOdessaVideo4, label: "Raquetes Clube Nova Odessa" },
+    { type: "video", src: novaOdessaVideo4, label: "Vista aérea Nova Odessa" },
     { type: "video", src: novaOdessaVideo3, label: "Por do sol" },
     { type: "video", src: novaOdessaVideo5, label: "Bastidores Nova Odessa" },
     { type: "image", src: novaOdessaPhoto1, label: "Estrutura Nova Odessa" },
-    { type: "image", src: novaOdessaPhoto2, label: "Unidade Nova Odessa" },
+    { type: "image", src: novaOdessaPhoto2, label: "Área de convivência" },
   ];
 
   return [
     {
       id: 1,
       slug: "americana",
-      name: "Unidade Americana",
+      name: "Americana",
       shortName: "Americana",
       tagline: "Tênis, raquetinha, squash, beach tennis e quadra de areia",
       address: "Av. de Cillo, 4451 - Pq Novo Mundo, Americana - SP",
@@ -77,7 +77,7 @@ function buildUnits(): Unit[] {
     {
       id: 2,
       slug: "nova-odessa",
-      name: "Unidade Nova Odessa",
+      name: "Nova Odessa",
       shortName: "Nova Odessa",
       tagline: "Tênis e raquetinha",
       address: "Av. Cinco, 227 - Bosque dos Eucaliptos, Nova Odessa - SP",
@@ -104,14 +104,11 @@ export default function UnidadesCarrossel() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-mono tracking-[0.3em] text-court-neon uppercase block mb-3">
-            • ESTRUTURA E UNIDADES BOUTIQUE •
-          </span>
           <h2 className="font-display font-black text-3xl sm:text-4xl md:text-5xl text-white mb-5 leading-tight">
             Nossas <span className="text-gradient-neon font-extrabold">Unidades</span>
           </h2>
           <p className="text-gray-300 text-sm md:text-base">
-            Conheça as duas unidades do Raquetes Clube em sequência. Primeiro Americana, depois Nova Odessa, cada uma com estrutura, modalidades, endereço e contatos rápidos.
+            Escolha a cidade para ver modalidades, endereço e canais de atendimento.
           </p>
         </div>
 
@@ -147,7 +144,7 @@ function UnitSection({ unit, index }: { unit: Unit; index: number; key?: string 
           {String(index + 1).padStart(2, "0")}
         </span>
         <div>
-          <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-court-neon">Unidade {index + 1}</p>
+          <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-court-neon">Raquetes Clube</p>
           <h3 className="font-display text-2xl sm:text-3xl font-black text-white">{unit.name}</h3>
         </div>
       </div>
@@ -221,7 +218,7 @@ function UnitSection({ unit, index }: { unit: Unit; index: number; key?: string 
         <div className="lg:col-span-6 flex flex-col justify-between bg-panel-dark/48 border border-white/5 rounded-3xl p-6 sm:p-8 lg:p-10 text-left backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
           <div>
             <span className="text-[10px] font-mono uppercase tracking-widest text-court-neon mb-2 block">RAQUETES CLUBE</span>
-            <h4 className="font-display font-black text-2xl sm:text-4xl text-white mb-2 leading-tight">{unit.name}</h4>
+            <h4 className="font-display font-black text-2xl sm:text-4xl text-white mb-2 leading-tight">Estrutura e atendimento</h4>
             <p className="text-gray-400 text-xs sm:text-sm font-medium italic mb-6">{unit.tagline}</p>
             <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6">{unit.description}</p>
 
