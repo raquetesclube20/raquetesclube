@@ -60,7 +60,7 @@ export default function RankingTorneios() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
-            className="lg:col-span-7 bg-panel-dark/40 border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
+            className="lg:col-span-7 self-start bg-panel-dark/40 border border-white/10 rounded-3xl overflow-hidden shadow-2xl"
           >
             <div className="relative aspect-[20/7] bg-black/40">
               <img
