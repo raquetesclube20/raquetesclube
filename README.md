@@ -76,6 +76,17 @@ Principais pastas de midia:
 - `assets/animations`: modelos 3D adicionados para testes futuros. Eles nao estao ativos no site neste momento.
 - `public/torneios/proximo-torneio.png`: banner editavel do proximo torneio exibido na secao Torneios & Rankings.
 
+O banner tambem pode ser gerenciado pelo painel Sanity. Quando houver um torneio ativo e publicado no painel, seus dados substituem o arquivo local automaticamente. Se o painel estiver vazio ou indisponivel, o site mantem `public/torneios/proximo-torneio.png` como fallback.
+
+Painel administrativo:
+
+- Projeto: `Raquetes Clube`
+- Project ID: `7eqc9tfi`
+- Dataset: `production`
+- URL: `https://raquetes-clube.sanity.studio/`
+- Codigo do painel: `studio/`
+- Campos: exibicao, titulo, banner, descricao, data, link, texto do botao e expiracao automatica.
+
 Banner de torneio recomendado:
 
 - Arquivo: `public/torneios/proximo-torneio.png`

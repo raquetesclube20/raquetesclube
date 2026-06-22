@@ -1,8 +1,38 @@
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Trophy, HelpCircle, ArrowUpRight, CalendarDays, ImagePlus } from "lucide-react";
+import {
+  fetchTournamentContent,
+  type TournamentContent,
+} from "../services/tournamentContent";
+
+function formatEventDate(value?: string) {
+  if (!value) return null;
+  const [year, month, day] = value.split("-").map(Number);
+  if (!year || !month || !day) return null;
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(year, month - 1, day));
+}
 
 export default function RankingTorneios() {
-  const tournamentBannerUrl = `${import.meta.env.BASE_URL}torneios/proximo-torneio.png`;
+  const fallbackBannerUrl = `${import.meta.env.BASE_URL}torneios/proximo-torneio.png`;
+  const [tournament, setTournament] = useState<TournamentContent | null>(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchTournamentContent(controller.signal)
+      .then(setTournament)
+      .catch(() => setTournament(null));
+    return () => controller.abort();
+  }, []);
+
+  const tournamentBannerUrl = tournament?.bannerUrl ?? fallbackBannerUrl;
+  const tournamentAlt =
+    tournament?.altText ?? "Banner do próximo torneio do Raquetes Clube";
+  const eventDate = formatEventDate(tournament?.eventDate);
 
   return (
     <section className="relative py-20 bg-dark-bg/95 border-b border-white/5" id="rankings">
@@ -35,16 +65,25 @@ export default function RankingTorneios() {
             <div className="relative aspect-[20/7] bg-black/40">
               <img
                 src={tournamentBannerUrl}
-                alt="Banner do próximo torneio do Raquetes Clube"
+                alt={tournamentAlt}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/75 via-transparent to-transparent" />
               <div className="absolute left-5 bottom-5 right-5">
                 <span className="inline-flex items-center gap-2 rounded-full bg-black/50 border border-white/10 px-3 py-1 text-[10px] font-mono uppercase tracking-widest text-court-neon backdrop-blur-md">
                   <ImagePlus className="w-3.5 h-3.5" />
-                  Banner editável
+                  {eventDate ?? "Próximo torneio"}
                 </span>
               </div>
+              {tournament?.registrationUrl && (
+                <a
+                  href={tournament.registrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${tournament.buttonLabel ?? "Inscreva-se"}: ${tournament.title}`}
+                  className="absolute inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-court-neon"
+                />
+              )}
             </div>
           </motion.div>
 
